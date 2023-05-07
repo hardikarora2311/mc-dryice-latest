@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/new.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <img src="assets/images/logo-mycloud.png" alt="" class="logo-onboard" />
+      <span>The DRYiCE Customer Experience</span>
+    </nav>
+
+    <section class="onboard-sec pattern-bg">
+      <div class="onboard-screen-1">
+        <div class="onboard-heading-sec">
+          <div class="onboard-heading-container">
+            <div class="vl"></div>
+            <h2 class="onboard-heading">
+              Welcome to DRYiCE MyCloud Experience
+            </h2>
+          </div>
+
+          <h2 class="onboard-subhead">
+            Hybrid Cloud lifecycle management product
+          </h2>
+        </div>
+
+        <div class="onboard-about">
+          <div class="onboard-desc">
+            <p class="para1">
+              DRYiCE MyCloud helps make every customer interaction matter by
+              connecting all your business applications. <br /><br />
+              Advertising, marketing, sales, and service applications are
+              unified with supply chain, finance, and HR data, enabling a single
+              view of the customer so that you can deliver a truly personalized,
+              differentiated experience—no matter how, when, or where they
+              engage with you.
+            </p>
+            <button class="onboard-btn" onclick="myFunction()" id="onboard-cta">
+              Get Started
+            </button>
+          </div>
+          <img
+            src="https://dryice-icontrol1-v6.netlify.app/assets/img/slider/lap-mockup.svg"
+            alt=""
+            class="onboard-image"
+          />
+        </div>
+      </div>
+
+    <div class="onboard-screen-2">
+        <div class="onboard-heading-sec">
+          <div class="onboard-heading-container">
+            <div class="vl"></div>
+            <h2 class="onboard-heading">Choose Your Journey</h2>
+          </div>
+
+          <h2 class="onboard-subhead">
+            Please select the use case to move forward
+          </h2>
+        </div>
+
+        <div class="onboard-menu">
+          <div class="use-case-wrapper">
+            <div class="use-case">
+              <img src="assets/images/logo-mycloud.png" alt="" width="100" />
+              <p>MyCloud Use Case 1</p>
+
+              <button class="usecase-btn" onclick="useCase1()">View</button>
+              <!-- <a href="1.html">View</a> -->
+            </div>
+            <div class="use-case">
+              <img src="assets/images/logo-mycloud.png" alt="" width="100" />
+              <p>MyCloud Use Case 2</p>
+              <button class="usecase-btn" onclick="useCase2()">View</button>
+
+              <!-- <a href="6.html">View</a> -->
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="usecase1-screen">
+        <div class="onboard-heading-sec">
+          <div class="onboard-heading-container">
+            <div class="vl"></div>
+            <h2 class="onboard-heading">USE CASE 1</h2>
+          </div>
+
+          <h2 class="onboard-subhead">
+            Product Tour
+          </h2>
+          <button class="usecase-back-btn" onclick="usecaseBack1()">Back</button>
+        </div>
+
+        <div class="usecase-desc">
+            <img src="assets/images/logo-mycloud.png" alt="" width="100" />
+            <div class="usecase-question">
+                <span>How would you like to continue this tour?</span>
+                <div class="tour-btns">
+                    <a href="1.html" class="webdemo-btn">Click Through</a>
+                    <button class="video-btn">Video Demo</button>
+
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+
+      <div class="usecase2-screen">
+        <div class="onboard-heading-sec">
+          <div class="onboard-heading-container">
+            <div class="vl"></div>
+            <h2 class="onboard-heading">USE CASE 2</h2>
+          </div>
+
+          <h2 class="onboard-subhead">
+            Product Tour
+          </h2>
+          <button class="usecase-back-btn" onclick="usecaseBack2()">Back</button>
+        </div>
+
+        <div class="usecase-desc">
+            <img src="assets/images/logo-mycloud.png" alt="" width="100" />
+            <div class="usecase-question">
+                <span>How would you like to continue this tour?</span>
+                <div class="tour-btns">
+                    <a href="6.html" class="webdemo-btn">Click Through</a>
+                    <button class="video-btn">Video Demo</button>
+
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script>
+      const footerDrop = document.getElementById("onboard-cta");
+      var myFunction = function () {
+        document.querySelector(".onboard-screen-2").classList.add("show-next");
+        document.querySelector(".onboard-screen-1").classList.toggle("no-show");
+      };
+
+      var useCase1 = function () {
+        document.querySelector(".usecase1-screen").classList.add("show-next");
+        document.querySelector(".onboard-screen-2").classList.toggle("show-next");
+        document.querySelector(".onboard-screen-2").classList.toggle("no-show");
+      };
+
+      var useCase2 = function () {
+        document.querySelector(".usecase2-screen").classList.add("show-next");
+        document.querySelector(".onboard-screen-2").classList.toggle("show-next");
+        document.querySelector(".onboard-screen-2").classList.toggle("no-show");
+      };
+
+
+      var usecaseBack2= function(){
+        document.querySelector(".usecase2-screen").classList.toggle("show-next");
+        document.querySelector(".usecase2-screen").classList.toggle("no-show");
+        document.querySelector(".onboard-screen-2").classList.toggle("show-next");
+        document.querySelector(".onboard-screen-2").classList.toggle("no-show");
+
+
+      };
+
+      
+      var usecaseBack1= function(){
+        document.querySelector(".usecase1-screen").classList.toggle("show-next");
+        document.querySelector(".usecase1-screen").classList.toggle("no-show");
+        document.querySelector(".onboard-screen-2").classList.toggle("show-next");
+        document.querySelector(".onboard-screen-2").classList.toggle("no-show");
+
+
+      };
+    </script>
+  </body>
+</html>

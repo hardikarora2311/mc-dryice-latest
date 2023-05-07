@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  background: #1a1a1a;
+}
+
+.navbar {
+  background: white;
+  /* margin-top: 1.2em; */
+  /* color: #fff; */
+  height: 70px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5em;
+}
+
+.logo-onboard {
+  height: 50px;
+  margin-left: 2.5em;
+  margin-right: 1em;
+}
+
+.navbar span {
+  font-weight: bold;
+  font-size: 18px;
+  /* color: white; */
+  font-family: "Source Sans Pro";
+  font-family: "Roboto", sans-serif;
+  /* font-family: "verdana"; */
+}
+.onboard-sec {
+  background: white;
+  background: #0077b5;
+  border-radius: 1em;
+  width: 62vw;
+  /* height: 420px; */
+  margin: auto;
+  margin-bottom: 2em;
+  box-shadow: 20px 40px 60px rgba(0, 0, 0, 0.2);
+  /* padding: 1.2em 0em; */
+  /* padding-bottom: 0; */
+  /* padding-top: 1.2em; */
+}
+.pattern-bg::after {
+  content: "";
+  background: url(https://www.dryice.ai/sites/default/files/home/pattern-wave.png)
+    no-repeat 100% 0;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  background-position: -10% 0;
+}
+
+.onboard-heading-container {
+  position: relative;
+  margin-left: 1.8em;
+  margin-top: 1.2em;
+}
+
+.onboard-heading-sec {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-top-right-radius: 1em;
+  border-top-left-radius: 1em;
+}
+
+.vl {
+  border-left: 4px solid #0077b5;
+  height: 35px;
+  position: absolute;
+  margin: 0 0.3em;
+  top: -3px;
+  /* left: -2px; */
+}
+
+.onboard-heading {
+  font-family: "Roboto", sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0.6em;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.onboard-subhead {
+  font-family: "Roboto", sans-serif;
+  margin-left: 1.6em;
+  margin-top: 1.5em;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.onboard-about {
+  font-family: "Roboto", sans-serif;
+  /* background-color: #061d34; */
+  display: flex;
+  justify-content: space-between;
+  /* height: 100%; */
+  color: white;
+  padding: 0.5em 1.5em;
+  padding-right: 0;
+}
+
+.onboard-desc {
+  width: 40%;
+}
+
+.onboard-btn {
+  cursor: pointer;
+  margin-top: 1em;
+  border-radius: 0.2em;
+  padding: 0.5em 1em;
+  font-size: 0.9em;
+  background-color: white;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  border-style: none;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.onboard-image {
+  height: 320px;
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+}
+
+.onboard-screen-2{
+    display: none;
+}
+
+
+.usecase1-screen{
+    display: none;
+}
+
+.usecase2-screen{
+    display: none;
+}
+
+.no-show {
+  display: none;
+}
+.show-next {
+  display: block;
+}
+
+.onboard-menu .use-case-wrapper .use-case {
+  cursor: pointer;
+  background-color: white;
+  margin: 1em 0;
+}
+
+.usecase-btn{
+    background: #0077b5;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 30px;
+    display: inline-block;
+    cursor: pointer;
+    border-style: none;
+}
+

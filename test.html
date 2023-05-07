@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Tour</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shepherd/2.0.0-beta.11/css/shepherd.css">
+  <style>
+    .highlight {
+      border: 2px solid red;
+      transition: border 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- Your HTML content goes here -->
+
+  <h1>Welcome to our Product</h1>
+  <p>Let's take a tour to explore the key features.</p>
+
+  <div id="tour-target" class="highlight">
+    <h2>Step 1: Feature 1</h2>
+    <p>This is the first feature of our product.</p>
+  </div>
+
+  <div id="action-area" class="highlight">
+    <h2>Step 2: Feature 2</h2>
+    <p>This is the second feature of our product.</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shepherd/2.0.0-beta.11/js/shepherd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.2.3/zooming.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var tour = new Shepherd.Tour({
+        defaultStepOptions: {
+          scrollTo: true,
+          showCancelLink: true
+        }
+      });
+
+      tour.addStep({
+        id: 'step-1',
+        text: 'Welcome to our product tour! This is Feature 1.',
+        attachTo: {
+          element: '#tour-target',
+          on: 'right'
+        },
+        buttons: [
+          {
+            text: 'Next',
+            action: tour.next
+          }
+        ],
+        when: {
+          show: function() {
+            highlightElement('tour-target');
+            zoomIntoElement('tour-target');
+          },
+          hide: function() {
+            removeHighlight('tour-target');
+            resetZoom('tour-target');
+          }
+        }
+      });
+
+      tour.addStep({
+        id: 'step-2',
+        text: 'This is Feature 2.',
+        attachTo: {
+          element: '#action-area',
+          on: 'right'
+        },
+        buttons: [
+          {
+            text: 'End Tour',
+            action: tour.complete
+          }
+        ],
+        when: {
+          show: function() {
+            highlightElement('action-area');
+            zoomIntoElement('action-area');
+          },
+          hide: function() {
+            removeHighlight('action-area');
+            resetZoom('action-area');
+          }
+        }
+      });
+
+      // Start the tour
+      tour.start();
+    });
+
+    function highlightElement(elementId) {
+      var element = document.getElementById(elementId);
+      if (element) {
+        element.classList.add('highlight');
+      }
+    }
+
+    function removeHighlight(elementId) {
+      var element = document.getElementById(elementId);
+      if (element) {
+        element.classList.remove('highlight');
+      }
+    }
+
+    function zoomIntoElement(elementId) {
+      var element = document.getElementById(elementId);
+      if (element) {
+        var zooming = new Zooming();
+        zooming.zoom(element);
+      }
+    }
+
+    function resetZoom(elementId) {
+      var element = document.getElementById(elementId);
+      if (element) {
+        var zooming = new Zooming();
+        zooming.reset();
+      }
+    }
+  </script>
