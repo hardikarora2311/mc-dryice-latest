@@ -1076,7 +1076,7 @@
           keyboard: false,
         });
         const tour = new Shepherd.Tour({
-          // useModalOverlay: true,
+          useModalOverlay: true,
           exitOnEsc: false,
           keyboardNavigation: false,
           defaultStepOptions: {
@@ -1106,10 +1106,10 @@
                   $(
                     ".shepherd-element.fiter-first-tour.btn-none button"
                   ).click();
-                  zoom.to({
-                    element: document.querySelector("#fiter-first-tour"),
-                    padding: 180,
-                  });
+                //   zoom.to({
+                //     element: document.querySelector("#fiter-first-tour"),
+                //     padding: 180,
+                //   });
                 });
               },
             },
@@ -1131,7 +1131,7 @@
                   e.preventDefault();
                   e.stopPropagation();
                   $(this).closest(".cutom-select").removeClass("active");
-                  zoom.out();
+                //   zoom.out();
                   tour.next();
                 });
               },
@@ -1149,8 +1149,8 @@
             classes: "filter-go-btn",
             when: {
               show: () => {
-                $("#filter-go-btn").addClass("active-opacity");
-                $("#filter-go-btn").addClass("new-highlight-layer");
+                // $("#filter-go-btn").addClass("active-opacity");
+                // $("#filter-go-btn").addClass("new-highlight-layer");
 
                 $("#filter-go-btn").on("click", function () {
                   $("#fiter-first").hide();
