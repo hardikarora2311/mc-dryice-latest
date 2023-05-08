@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+    <div id="prelaoder">
+      <video autoplay muted>
+        <source src="assets/images/Logo_Merged.mp4" type="video/mp4" />
+        Your browser does not support html video
+      </video>
+    </div>
     <nav class="navbar">
       <img src="assets/images/logo-mycloud.png" alt="" class="logo-onboard" />
       <span>The DRYiCE Customer Experience</span>
@@ -52,7 +58,7 @@
         </div>
       </div>
 
-    <div class="onboard-screen-2">
+      <div class="onboard-screen-2">
         <div class="onboard-heading-sec">
           <div class="onboard-heading-container">
             <div class="vl"></div>
@@ -82,35 +88,32 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
 
-    <div class="usecase1-screen">
+      <div class="usecase1-screen">
         <div class="onboard-heading-sec">
           <div class="onboard-heading-container">
             <div class="vl"></div>
             <h2 class="onboard-heading">USE CASE 1</h2>
           </div>
 
-          <h2 class="onboard-subhead">
-            Product Tour
-          </h2>
-          <button class="usecase-back-btn" onclick="usecaseBack1()">Back</button>
+          <h2 class="onboard-subhead">Product Tour</h2>
+          <button class="usecase-back-btn" onclick="usecaseBack1()">
+            Back
+          </button>
         </div>
 
         <div class="usecase-desc">
-            <img src="assets/images/logo-mycloud.png" alt="" width="100" />
-            <div class="usecase-question">
-                <span>How would you like to continue this tour?</span>
-                <div class="tour-btns">
-                    <a href="1.html" class="webdemo-btn">Click Through</a>
-                    <button class="video-btn">Video Demo</button>
-
-                </div>
+          <img src="assets/images/logo-mycloud.png" alt="" width="100" />
+          <div class="usecase-question">
+            <span>How would you like to continue this tour?</span>
+            <div class="tour-btns">
+              <a href="1.html" class="webdemo-btn">Click Through</a>
+              <button class="video-btn">Video Demo</button>
             </div>
+          </div>
         </div>
-
       </div>
-
 
       <div class="usecase2-screen">
         <div class="onboard-heading-sec">
@@ -119,28 +122,30 @@
             <h2 class="onboard-heading">USE CASE 2</h2>
           </div>
 
-          <h2 class="onboard-subhead">
-            Product Tour
-          </h2>
-          <button class="usecase-back-btn" onclick="usecaseBack2()">Back</button>
+          <h2 class="onboard-subhead">Product Tour</h2>
+          <button class="usecase-back-btn" onclick="usecaseBack2()">
+            Back
+          </button>
         </div>
 
         <div class="usecase-desc">
-            <img src="assets/images/logo-mycloud.png" alt="" width="100" />
-            <div class="usecase-question">
-                <span>How would you like to continue this tour?</span>
-                <div class="tour-btns">
-                    <a href="6.html" class="webdemo-btn">Click Through</a>
-                    <button class="video-btn">Video Demo</button>
-
-                </div>
+          <img src="assets/images/logo-mycloud.png" alt="" width="100" />
+          <div class="usecase-question">
+            <span>How would you like to continue this tour?</span>
+            <div class="tour-btns">
+              <a href="6.html" class="webdemo-btn">Click Through</a>
+              <button class="video-btn">Video Demo</button>
             </div>
+          </div>
         </div>
-
       </div>
     </section>
 
     <script>
+      setTimeout(function () {
+        let body = document.getElementsByTagName("body")[0];
+        body.classList.add("loaded");
+      }, 10000);
       const footerDrop = document.getElementById("onboard-cta");
       var myFunction = function () {
         document.querySelector(".onboard-screen-2").classList.add("show-next");
@@ -149,34 +154,40 @@
 
       var useCase1 = function () {
         document.querySelector(".usecase1-screen").classList.add("show-next");
-        document.querySelector(".onboard-screen-2").classList.toggle("show-next");
+        document
+          .querySelector(".onboard-screen-2")
+          .classList.toggle("show-next");
         document.querySelector(".onboard-screen-2").classList.toggle("no-show");
       };
 
       var useCase2 = function () {
         document.querySelector(".usecase2-screen").classList.add("show-next");
-        document.querySelector(".onboard-screen-2").classList.toggle("show-next");
+        document
+          .querySelector(".onboard-screen-2")
+          .classList.toggle("show-next");
         document.querySelector(".onboard-screen-2").classList.toggle("no-show");
       };
 
-
-      var usecaseBack2= function(){
-        document.querySelector(".usecase2-screen").classList.toggle("show-next");
+      var usecaseBack2 = function () {
+        document
+          .querySelector(".usecase2-screen")
+          .classList.toggle("show-next");
         document.querySelector(".usecase2-screen").classList.toggle("no-show");
-        document.querySelector(".onboard-screen-2").classList.toggle("show-next");
+        document
+          .querySelector(".onboard-screen-2")
+          .classList.toggle("show-next");
         document.querySelector(".onboard-screen-2").classList.toggle("no-show");
-
-
       };
 
-      
-      var usecaseBack1= function(){
-        document.querySelector(".usecase1-screen").classList.toggle("show-next");
+      var usecaseBack1 = function () {
+        document
+          .querySelector(".usecase1-screen")
+          .classList.toggle("show-next");
         document.querySelector(".usecase1-screen").classList.toggle("no-show");
-        document.querySelector(".onboard-screen-2").classList.toggle("show-next");
+        document
+          .querySelector(".onboard-screen-2")
+          .classList.toggle("show-next");
         document.querySelector(".onboard-screen-2").classList.toggle("no-show");
-
-
       };
     </script>
   </body>

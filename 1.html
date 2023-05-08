@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/reset.css" />
   </head>
+
   <body class="main-dashboard">
     <div class="darkscale"></div>
     <div
@@ -198,7 +199,7 @@
           ],
           when: {
             show: () => {
-            //   $(".main-dashboard").addClass("darkscale");
+              //   $(".main-dashboard").addClass("darkscale");
             },
           },
           modalOverlayOpeningPadding: 0,
@@ -252,15 +253,14 @@
                 padding: 150,
               });
               $(".third-step").addClass("active");
+              $("#third-step").addClass("new-highlight-layer");
             },
           },
 
-            highlightClass: "highlight-layer",
+          highlightClass: "highlight-layer",
           //   classes: "example-step-extra-class",
           useModalOverlay: false,
         },
-
-    
 
         {
           arrow: false,
@@ -269,18 +269,6 @@
             element: "#third-step",
             on: "right",
           },
-
-          buttons: [
-            {
-              text: "Previous",
-              classes: "previous",
-              action: tour.back,
-            },
-            {
-              text: "Next",
-              action: tour.next,
-            },
-          ],
           when: {
             show: () => {
               zoom.out();

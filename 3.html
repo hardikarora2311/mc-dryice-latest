@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/shepherd.css"/>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css" />
+
 </head>
 <body class="main-dashboard min-h-100" style="overflow: hidden; height:100vh">
+    <div class="darkscale"></div>
+
     <div class="top-bar-main d-flex justify-content-between" style="padding: 0 25px ;background:#0077b5;color: #fff;">
         <img src="assets/images/logo.PNG" style="padding: 2px 0;">
         <div class="top-bar-cta d-flex align-items-center ps-2" style="border-left: 1px solid #fff;">
@@ -97,7 +101,7 @@
                     <td class="no-data-td"colspan="3">
                         <span class="no-data">No Data Available</span>
                         <div class="catalog-card-list" style="display: none;">
-                            <div class="catalog-card">
+                            <div class="catalog-card" id="focus-card">
                                 <div class="card-head mb-4">
                                     <img src="assets/images/card-1.jpg">3 Tier Blueprint - Redhat Linux 7.8
                                 </div>
@@ -172,6 +176,7 @@
     <div class="copyright" style="background-color:#0077b5;padding: 10px 40px;color: #fff;">
         <p class="mb-0">Copyright © 2013, 2022 HCL Technologies Limited</p>
     </div>
+    <script src="assets/js/zoom.js"></script>
     <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/shepherd.min.js"></script>
@@ -185,7 +190,7 @@
         $(this).closest('.select-tag').find('.select-name').text($(this).text());
     });
     const tour = new Shepherd.Tour({
-    useModalOverlay: true,
+    // useModalOverlay: true,
             exitOnEsc: false,
             keyboardNavigation: false,
     defaultStepOptions: {
@@ -245,6 +250,14 @@
                 element: '#last-step',
                 on: 'left',
             },
+
+            when: {show: ()=>{
+                zoom.to({
+                element: document.querySelector("#focus-card"),
+                padding: 80,
+              });
+              $("#focus-card .card-footer a.btn").addClass("focus-button")
+            }},
             classes: 'third-step btn-none',
             buttons: [
                 {
@@ -255,6 +268,8 @@
             highlightClass: 'highlight-layer', 
             modalOverlayOpeningPadding: 2
         }
+
+        
     ]);
     tour.start();
 </script>
