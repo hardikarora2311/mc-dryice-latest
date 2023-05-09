@@ -1451,6 +1451,56 @@
           },
 
           //new step to select again
+          {
+            arrow: false,
+            text: "Now that all the available resources have been populated based on your selection, let’s perform some actions.<br><br>To proceed, pick one:",
+            attachTo: {
+              element: ".popup-wrapper",
+              on: "top",
+            },
+            when: {
+              show: () => {
+                $(".popup-wrapper").addClass(" d-flex ");
+                $("#filter-go-btn").removeClass("new-highlight-layer");
+
+                $(".popup-wrapper").addClass(" new-highlight-layer ");
+                $(".popup-wrapper").addClass("active-opacity");
+
+                if (localStorage.popup1) {
+                  $("#popup1").addClass("greyscale");
+                  $("#popup1 path").css("filter","grayscale(1)");
+
+                  console.log("pppp");
+                }
+                if (localStorage.popup2) {
+                  $("#popup2").addClass("greyscale");
+                  $("#popup2 path").css("filter","grayscale(1)");
+
+                  console.log("pppp");
+                }
+                if (localStorage.popup3) {
+                  $("#popup3").addClass("greyscale");
+                  $("#popup3 path").css("filter","grayscale(1)");
+                  console.log("pppp");
+                }
+                if (
+                  localStorage.popup1 &&
+                  localStorage.popup2 &&
+                  localStorage.popup3
+                ) {
+                  tour.complete();
+                  $("body > *").removeClass("d-flex").hide();
+                  $(".thank-you").show();
+                  localStorage.removeItem('popup1');
+                  localStorage.removeItem('popup2');
+                  localStorage.removeItem('popup3');
+                }
+              },
+            },
+            classes: "table-tour-main",
+            highlightClass: "highlight-layer",
+            modalOverlayOpeningPadding: 3,
+          },
 
           //   {
           //     arrow: false,

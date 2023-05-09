@@ -2094,7 +2094,7 @@ div#modaltour-4 .modal-dialog {
   }
 
   .greyscale{
-    color: purple !important;
+    filter: grayscale(1);
   }
 
 
