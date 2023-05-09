@@ -1312,6 +1312,19 @@
                     $("#popup3").addClass("greyscale");
                     console.log("pppp");
                 };
+                if (
+                  localStorage.popup1 &&
+                  localStorage.popup2 &&
+                  localStorage.popup3
+                ) {
+                  tour.complete();
+                  $("body > *").removeClass("d-flex").hide();
+                  $(".thank-you").show();
+                  localStorage.removeItem('popup1');
+                  localStorage.removeItem('popup2');
+                  localStorage.removeItem('popup3');
+
+                }
               },
             },
             classes: "table-tour-main",
