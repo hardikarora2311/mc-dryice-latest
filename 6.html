@@ -11,34 +11,33 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/reset.css" />
     <style>
-      .popup-wrapper {
-        width: 600px;
-        height: 300px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #0077b5;
-        box-shadow: 0 0 50px 0 rgb(0 0 0 / 30%);
-        border-radius: 10px;
-        z-index: 1;
-      }
-      .popup {
-        width: 150px;
-        height: 150px;
-        cursor: pointer;
-        color: black;
-        margin: 1em 1.2em;
-        border-radius: 10px;
-        background-color: white;
-        box-shadow: 0 0 15px 0 rgb(0 0 0 / 20%);
-      }
-    </style>
+        .popup-wrapper {
+          width: 600px;
+          height: 300px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #0077b5;
+          box-shadow: 0 0 50px 0 rgb(0 0 0 / 30%);
+          border-radius: 10px;
+          z-index: 1;
+        }
+        .popup {
+          width: 150px;
+          height: 150px;
+          cursor: pointer;
+          color: black;
+          margin: 1em 1.2em;
+          border-radius: 10px;
+          background-color: white;
+          box-shadow: 0 0 15px 0 rgb(0 0 0 / 20%);
+        }
+      </style>
   </head>
   <body class="min-h-100 main-pages" style="overflow: hidden; height: 100vh">
-    <!-- POPUP -->
-
+    <div class="darkscale"></div>
     <div
-      class="popup-wrapper position-absolute d-flex justify-content-center align-items-center"
+      class="popup-wrapper position-absolute justify-content-center align-items-center" style= "display:none"
     >
       <a href="7.html" class="popup">
         <div>
@@ -80,8 +79,6 @@
         </div>
       </a>
     </div>
-
-    <!-- <div class="darkscale"></div> -->
     <div
       class="top-bar-main d-flex justify-content-between"
       style="padding: 0 25px; background: #0077b5; color: #fff"
@@ -1079,6 +1076,9 @@
       </div>
     </div>
 
+
+
+
     <!-- thankyouuuuuuuuu -->
     <div class="thank-you" style="display: none">
       <div class="start-up-wrapper">
@@ -1242,21 +1242,19 @@
           },
           {
             arrow: false,
-            text: "Now that all the available resources have been populated based on your selection, let’s perform some actions.<br><br>To proceed, pick one<ul><li>Stop VM</li><li>Resize Server</li><li>Add Disk</li>",
+            text: "Now that all the available resources have been populated based on your selection, let’s perform some actions.<br><br>To proceed, pick one:",
             attachTo: {
-              element: "#table-tour-main",
+              element: ".popup-wrapper",
               on: "top",
             },
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
+
             when: {
                 show: ()=>{
-                    $("#table-tour-main").addClass("new-highlight-layer-noborder")
-                    $("#table-tour-main").addClass("active-opacity")
+                    $(".popup-wrapper").addClass(" d-flex ")
+                $("#filter-go-btn").removeClass("new-highlight-layer");
+
+                    $(".popup-wrapper").addClass(" new-highlight-layer ")
+                    $(".popup-wrapper").addClass("active-opacity")
 
                 }
             },
@@ -1990,13 +1988,13 @@
         //     },
         //   },
         ]);
-        // tour.start();
-        // $(".action-wrapper .action-drop").on(
-        //   "mousewheel touchmove",
-        //   function (e) {
-        //     e.preventDefault();
-        //   }
-        // );
+        tour.start();
+        $(".action-wrapper .action-drop").on(
+          "mousewheel touchmove",
+          function (e) {
+            e.preventDefault();
+          }
+        );
       });
     </script>
   </body>
