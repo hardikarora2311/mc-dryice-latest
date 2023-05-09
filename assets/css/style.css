@@ -2093,6 +2093,14 @@ div#modaltour-4 .modal-dialog {
     padding: 1em 0.8em;
   }
 
+  .greyscale{
+    color: purple !important;
+  }
+
+
+  .popup-wrapper {
+    z-index: 2000 !important;
+  }
 
 
 

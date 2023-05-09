@@ -68,7 +68,7 @@
       class="popup-wrapper position-absolute justify-content-center align-items-center"
       style="display: none"
     >
-      <a
+      <a id="popup1"
         href="7.html"
         class="popup d-flex justify-content-center align-items-center"
       >
@@ -86,6 +86,7 @@
       </a>
       <a
         href="8.html"
+        id="popup2"
         class="popup d-flex justify-content-center align-items-center"
       >
         <div>
@@ -102,6 +103,7 @@
       </a>
       <a
         href="9.html"
+        id="popup3"
         class="popup d-flex justify-content-center align-items-center"
       >
         <div>
@@ -1181,6 +1183,16 @@
         var modal4 = new bootstrap.Modal($("#modaltour-4"), {
           keyboard: false,
         });
+        
+        document.getElementById("popup1").addEventListener("click", function(){
+            localStorage.setItem("popup1", true)
+        });
+        document.getElementById("popup2").addEventListener("click", function(){
+            localStorage.setItem("popup2", true)
+        });
+        document.getElementById("popup3").addEventListener("click", function(){
+            localStorage.setItem("popup3", true)
+        });
         const tour = new Shepherd.Tour({
           //   useModalOverlay: true,
           exitOnEsc: false,
@@ -1288,6 +1300,18 @@
 
                 $(".popup-wrapper").addClass(" new-highlight-layer ");
                 $(".popup-wrapper").addClass("active-opacity");
+                if (localStorage.popup1){
+                    $("#popup1").addClass("greyscale");
+                    console.log("pppp");
+                };
+                if (localStorage.popup2){
+                    $("#popup2").addClass("greyscale");
+                    console.log("pppp");
+                };
+                if (localStorage.popup3){
+                    $("#popup3").addClass("greyscale");
+                    console.log("pppp");
+                };
               },
             },
             classes: "table-tour-main",
