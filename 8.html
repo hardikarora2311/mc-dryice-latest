@@ -67,7 +67,7 @@
       style="display: none"
     >
       <a
-      id="popup1"
+        id="popup1"
         href="7.html"
         class="popup d-flex justify-content-center align-items-center"
       >
@@ -83,9 +83,8 @@
           <p class="m-2 p-1">START VM</p>
         </div>
       </a>
-      <a 
-      id="popup2"
-
+      <a
+        id="popup2"
         href="8.html"
         class="popup d-flex justify-content-center align-items-center"
       >
@@ -103,8 +102,7 @@
       </a>
       <a
         href="9.html"
-      id="popup3"
-
+        id="popup3"
         class="popup d-flex justify-content-center align-items-center"
       >
         <div>
@@ -1184,15 +1182,21 @@
         var modal4 = new bootstrap.Modal($("#modaltour-4"), {
           keyboard: false,
         });
-        document.getElementById("popup1").addEventListener("click", function(){
-            localStorage.setItem("popup1", true)
-        });
-        document.getElementById("popup2").addEventListener("click", function(){
-            localStorage.setItem("popup2", true)
-        });
-        document.getElementById("popup3").addEventListener("click", function(){
-            localStorage.setItem("popup3", true)
-        });
+        document
+          .getElementById("popup1")
+          .addEventListener("click", function () {
+            localStorage.setItem("popup1", true);
+          });
+        document
+          .getElementById("popup2")
+          .addEventListener("click", function () {
+            localStorage.setItem("popup2", true);
+          });
+        document
+          .getElementById("popup3")
+          .addEventListener("click", function () {
+            localStorage.setItem("popup3", true);
+          });
         const tour = new Shepherd.Tour({
           useModalOverlay: true,
           exitOnEsc: false,
@@ -1751,9 +1755,9 @@
                   tour.complete();
                   $("body > *").removeClass("d-flex").hide();
                   $(".thank-you").show();
-                  localStorage.removeItem('popup1');
-                  localStorage.removeItem('popup2');
-                  localStorage.removeItem('popup3');
+                  localStorage.removeItem("popup1");
+                  localStorage.removeItem("popup2");
+                  localStorage.removeItem("popup3");
                 }
               },
             },
