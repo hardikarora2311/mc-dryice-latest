@@ -1451,7 +1451,17 @@
           },
 
           //new step to select again
-
+          {
+            arrow: false,
+            text: "Now that all the available resources have been populated based on your selection, let’s perform some actions.<br><br>To proceed, pick one:",
+            attachTo: {
+              element: ".popup-wrapper",
+              on: "top",
+            },
+            when: {
+              show: () => {
+                $(".popup-wrapper").addClass(" d-flex ");
+                $("#filter-go-btn").removeClass("new-highlight-layer");
 
                 $(".popup-wrapper").addClass(" new-highlight-layer ");
                 $(".popup-wrapper").addClass("active-opacity");
@@ -1471,7 +1481,6 @@
                 if (localStorage.popup3) {
                   $("#popup3").addClass("greyscale");
                   $("#popup3 path").css("filter","grayscale(1)");
-
                   console.log("pppp");
                 }
                 if (
