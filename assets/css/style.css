@@ -1935,14 +1935,15 @@ div#modaltour-4 .modal-dialog {
   transition: all 0.3s ease;
 }
 
-.use-case-wrapper .use-case a {
+/* .use-case-wrapper .use-case a {
   background: #0077b5;
   color: #fff;
   text-decoration: none;
   padding: 5px 30px;
   display: inline-block;
   cursor: pointer;
-}
+  margin-top: 0.5em;
+} */
 
 .use-case-wrapper .use-case:hover {
   transform: scale(1.05);
