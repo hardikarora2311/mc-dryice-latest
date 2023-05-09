@@ -1266,6 +1266,60 @@
             arrow: false,
             text: "Click 'Go' to move forward.",
             attachTo: {
+              element: "#fiter-first-tour",
+              on: "bottom",
+            },
+            classes: "fiter-first-tour btn-none",
+            buttons: [
+              {
+                text: "Next",
+                action: tour.next,
+              },
+            ],
+            when: {
+              show: () => {
+                $("#fiter-first-tour .select-tag").on("click", function () {
+                  $(this).closest(".cutom-select").addClass("active");
+                  $(
+                    ".shepherd-element.fiter-first-tour.btn-none button"
+                  ).click();
+                //   zoom.to({
+                //     element: document.querySelector("#fiter-first-tour"),
+                //     padding: 180,
+                //   });
+                });
+              },
+            },
+            highlightClass: "highlight-layer",
+            modalOverlayOpeningPadding: 3,
+          },
+          {
+            arrow: false,
+            text: "Select the object type from the dropdown",
+            attachTo: {
+              element: "#second-filter-step",
+              on: "right",
+            },
+            classes: "second-step",
+            when: {
+              show: () => {
+                $(".shepherd-element.fiter-first-tour").remove();
+                $("#second-filter-step .option-main").on("click", function (e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  $(this).closest(".cutom-select").removeClass("active");
+                //   zoom.out();
+                  tour.next();
+                });
+              },
+            },
+            highlightClass: "highlight-layer",
+            modalOverlayOpeningPadding: 3,
+          },
+          {
+            arrow: false,
+            text: "When you're done selecting , click 'Go' to move forward.",
+            attachTo: {
               element: "#filter-go-btn",
               on: "top",
             },
@@ -1398,17 +1452,6 @@
 
           //new step to select again
 
-          {
-            arrow: false,
-            text: "Now that all the available resources have been populated based on your selection, let’s perform some actions.<br><br>To proceed, pick one:",
-            attachTo: {
-              element: ".popup-wrapper",
-              on: "top",
-            },
-            when: {
-              show: () => {
-                $(".popup-wrapper").addClass(" d-flex ");
-                $("#filter-go-btn").removeClass("new-highlight-layer");
 
                 $(".popup-wrapper").addClass(" new-highlight-layer ");
                 $(".popup-wrapper").addClass("active-opacity");
