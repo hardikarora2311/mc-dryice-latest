@@ -2057,8 +2057,14 @@ div#modaltour-4 .modal-dialog {
   .new-highlight-layer{
     position: relative;
     z-index: 5;
-    border: 3px solid white;
+    border: 3px solid white !important;
+    transition: all 0.5s ease-in;
 
+  }
+
+  .new-highlight-layer-noborder{
+    position: relative;
+    z-index: 5;
   }
 
   .shepherd-element{

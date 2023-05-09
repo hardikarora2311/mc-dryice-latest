@@ -1615,6 +1615,48 @@
         //     highlightClass: "highlight-layer",
         //     modalOverlayOpeningPadding: 3,
         //   },
+        {
+            arrow: false,
+            text: "Click 'Go' to move forward.",
+            attachTo: {
+              element: "#filter-go-btn",
+              on: "top",
+            },
+            classes: "filter-go-btn",
+            when: {
+              show: () => {
+                // $("#filter-go-btn").addClass("active-opacity");
+                // $("#filter-go-btn").addClass("new-highlight-layer");
+
+                $("#filter-go-btn").on("click", function () {
+                  $("#fiter-first").hide();
+                  setTimeout(() => {
+                    $(".table-wrapper-clr").show();
+                    tour.next();
+                  }, 200);
+                });
+              },
+            },
+            highlightClass: "highlight-layer",
+            modalOverlayOpeningPadding: 3,
+          },
+          {
+            arrow: false,
+            text: "Now that all the available resources have been populated based on your selection, let’s perform some actions.<br><br>To proceed, pick: <ul><li>Add Disk</li>",
+            attachTo: {
+              element: "#table-tour-main",
+              on: "top",
+            },
+            buttons: [
+              {
+                text: "Next",
+                action: tour.next,
+              },
+            ],
+            classes: "table-tour-main",
+            highlightClass: "highlight-layer",
+            modalOverlayOpeningPadding: 3,
+          },
           {
             arrow: false,
             text: "Click the Action button to perform the Day2 action.",

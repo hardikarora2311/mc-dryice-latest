@@ -1279,28 +1279,79 @@
         //   },
 
           // 8 start
-          {
+        //   {
+        //     arrow: false,
+        //     text: "To manage the available resources, let's select the platform and object type under My Objects.",
+        //     attachTo: {
+        //       element: "#fiter-first-tour",
+        //       on: "bottom",
+        //     },
+        //     classes: "fiter-first-tour-2 btn-none",
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     when: {
+        //       show: () => {
+        //         $("#fiter-first-tour .select-tag").unbind("click").off("click");
+        //         $("#fiter-first-tour .select-tag").on("click", function () {
+        //           $(this).closest(".cutom-select").addClass("active");
+        //           $(
+        //             ".shepherd-element.fiter-first-tour-2.btn-none button"
+        //           ).click();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Select the object type from the dropdown",
+        //     attachTo: {
+        //       element: "#second-filter-step",
+        //       on: "right",
+        //     },
+        //     classes: "second-step",
+        //     when: {
+        //       show: () => {
+        //         $(".shepherd-element.fiter-first-tour-2").remove();
+        //         $("#second-filter-step .option-main")
+        //           .unbind("click")
+        //           .off("click");
+        //         $("#second-filter-step .option-main").on("click", function (e) {
+        //           e.preventDefault();
+        //           e.stopPropagation();
+        //           $(this).closest(".cutom-select").removeClass("active");
+        //           $("#fiter-first").hide();
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        {
             arrow: false,
-            text: "To manage the available resources, let's select the platform and object type under My Objects.",
+            text: "Click 'Go' to move forward.",
             attachTo: {
-              element: "#fiter-first-tour",
-              on: "bottom",
+              element: "#filter-go-btn",
+              on: "top",
             },
-            classes: "fiter-first-tour-2 btn-none",
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
+            classes: "filter-go-btn",
             when: {
               show: () => {
-                $("#fiter-first-tour .select-tag").unbind("click").off("click");
-                $("#fiter-first-tour .select-tag").on("click", function () {
-                  $(this).closest(".cutom-select").addClass("active");
-                  $(
-                    ".shepherd-element.fiter-first-tour-2.btn-none button"
-                  ).click();
+                // $("#filter-go-btn").addClass("active-opacity");
+                // $("#filter-go-btn").addClass("new-highlight-layer");
+
+                $("#filter-go-btn").on("click", function () {
+                  $("#fiter-first").hide();
+                  setTimeout(() => {
+                    $(".table-wrapper-clr").show();
+                    tour.next();
+                  }, 200);
                 });
               },
             },
@@ -1309,27 +1360,18 @@
           },
           {
             arrow: false,
-            text: "Select the object type from the dropdown",
+            text: "Now that all the available resources have been populated based on your selection, let’s perform some actions.<br><br>To proceed, pick: <ul><li>Resize Server</li>",
             attachTo: {
-              element: "#second-filter-step",
-              on: "right",
+              element: "#table-tour-main",
+              on: "top",
             },
-            classes: "second-step",
-            when: {
-              show: () => {
-                $(".shepherd-element.fiter-first-tour-2").remove();
-                $("#second-filter-step .option-main")
-                  .unbind("click")
-                  .off("click");
-                $("#second-filter-step .option-main").on("click", function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  $(this).closest(".cutom-select").removeClass("active");
-                  $("#fiter-first").hide();
-                  tour.next();
-                });
+            buttons: [
+              {
+                text: "Next",
+                action: tour.next,
               },
-            },
+            ],
+            classes: "table-tour-main",
             highlightClass: "highlight-layer",
             modalOverlayOpeningPadding: 3,
           },

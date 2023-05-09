@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/reset.css" />
   </head>
   <body class="min-h-100 main-pages" style="overflow: hidden; height: 100vh">
-    <!-- <div class="darkscale"></div> -->
+    <div class="darkscale"></div>
     <div
       class="top-bar-main d-flex justify-content-between"
       style="padding: 0 25px; background: #0077b5; color: #fff"
@@ -1081,7 +1081,7 @@
           keyboard: false,
         });
         const tour = new Shepherd.Tour({
-          useModalOverlay: true,
+        //   useModalOverlay: true,
           exitOnEsc: false,
           keyboardNavigation: false,
           defaultStepOptions: {
@@ -1106,15 +1106,18 @@
             ],
             when: {
               show: () => {
+                $("#fiter-first-tour").addClass("active-opacity")
+                $("#fiter-first-tour").addClass("new-highlight-layer-noborder")
+
                 $("#fiter-first-tour .select-tag").on("click", function () {
                   $(this).closest(".cutom-select").addClass("active");
                   $(
                     ".shepherd-element.fiter-first-tour.btn-none button"
                   ).click();
-                //   zoom.to({
-                //     element: document.querySelector("#fiter-first-tour"),
-                //     padding: 180,
-                //   });
+                  zoom.to({
+                    element: document.querySelector("#fiter-first-tour"),
+                    padding: 180,
+                  });
                 });
               },
             },
@@ -1131,12 +1134,14 @@
             classes: "second-step",
             when: {
               show: () => {
+
+
                 $(".shepherd-element.fiter-first-tour").remove();
                 $("#second-filter-step .option-main").on("click", function (e) {
                   e.preventDefault();
                   e.stopPropagation();
                   $(this).closest(".cutom-select").removeClass("active");
-                //   zoom.out();
+                  zoom.out();
                   tour.next();
                 });
               },
@@ -1154,8 +1159,8 @@
             classes: "filter-go-btn",
             when: {
               show: () => {
-                // $("#filter-go-btn").addClass("active-opacity");
-                // $("#filter-go-btn").addClass("new-highlight-layer");
+                $("#filter-go-btn").addClass("active-opacity");
+                $("#filter-go-btn").addClass("new-highlight-layer");
 
                 $("#filter-go-btn").on("click", function () {
                   $("#fiter-first").hide();
@@ -1182,735 +1187,742 @@
                 action: tour.next,
               },
             ],
+            when: {
+                show: ()=>{
+                    $("#table-tour-main").addClass("new-highlight-layer-noborder")
+                    $("#table-tour-main").addClass("active-opacity")
+
+                }
+            },
             classes: "table-tour-main",
             highlightClass: "highlight-layer",
             modalOverlayOpeningPadding: 3,
           },
-          {
-            arrow: false,
-            text: "Click the Action button to perform the Day2 action.",
-            attachTo: {
-              element: "#table-first-step",
-              on: "top-end",
-            },
-            classes: "table-first-step",
-            when: {
-              show: () => {
-                $("#table-first-step").on("click", function () {
-                  $(this).find(".action-wrapper").addClass("active");
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 1,
-          },
-          {
-            arrow: false,
-            text: "To start a VM, scroll through the actions and select Start VM.<br><br>You'll see a popup window once you click on the Day2 action.",
-            attachTo: {
-              element: "#table-start-action",
-              on: "left",
-            },
-            classes: "table-start-action",
-            when: {
-              show: () => {
-                $("#table-action-drop-wrap").animate(
-                  {
-                    scrollTop: $("#table-action-drop-wrap").offset().top,
-                  },
-                  2
-                );
-                $("#table-start-action").on("click", function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  $(this).closest(".action-wrapper").removeClass("active");
-                  modal.show();
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "click on Submit to create a request.",
-            attachTo: {
-              element: "#modaltourbtn",
-              on: "bottom",
-            },
-            classes: "modaltourbtn",
-            when: {
-              show: () => {
-                $("#modaltourbtn").on("click", function () {
-                  $(this)
-                    .closest(".modal-body")
-                    .find(".modal-pop-up-wrapper")
-                    .css("display", "flex");
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "The request has been created, <br>and once it's approved, <br>it'll be executed.",
-            attachTo: {
-              element: "#modal-popup",
-              on: "left",
-            },
-            when: {
-              show: () => {
-                $("#modal-popup button").on("click", function () {
-                  modal.hide();
-                  $("#fiter-first").show();
-                  $(".table-wrapper-clr").hide();
-                  $("#second-filter-step .select-name").text("--Select--");
-                  tour.next();
-                });
-              },
-            },
-            classes: "modal-popup",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
+        //   {
+        //     arrow: false,
+        //     text: "Click the Action button to perform the Day2 action.",
+        //     attachTo: {
+        //       element: "#table-first-step",
+        //       on: "top-end",
+        //     },
+        //     classes: "table-first-step",
+        //     when: {
+        //       show: () => {
+        //         $("#table-first-step").on("click", function () {
+        //           $(this).find(".action-wrapper").addClass("active");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 1,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "To start a VM, scroll through the actions and select Start VM.<br><br>You'll see a popup window once you click on the Day2 action.",
+        //     attachTo: {
+        //       element: "#table-start-action",
+        //       on: "left",
+        //     },
+        //     classes: "table-start-action",
+        //     when: {
+        //       show: () => {
+        //         $("#table-action-drop-wrap").animate(
+        //           {
+        //             scrollTop: $("#table-action-drop-wrap").offset().top,
+        //           },
+        //           2
+        //         );
+        //         $("#table-start-action").on("click", function (e) {
+        //           e.preventDefault();
+        //           e.stopPropagation();
+        //           $(this).closest(".action-wrapper").removeClass("active");
+        //           modal.show();
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "click on Submit to create a request.",
+        //     attachTo: {
+        //       element: "#modaltourbtn",
+        //       on: "bottom",
+        //     },
+        //     classes: "modaltourbtn",
+        //     when: {
+        //       show: () => {
+        //         $("#modaltourbtn").on("click", function () {
+        //           $(this)
+        //             .closest(".modal-body")
+        //             .find(".modal-pop-up-wrapper")
+        //             .css("display", "flex");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "The request has been created, <br>and once it's approved, <br>it'll be executed.",
+        //     attachTo: {
+        //       element: "#modal-popup",
+        //       on: "left",
+        //     },
+        //     when: {
+        //       show: () => {
+        //         $("#modal-popup button").on("click", function () {
+        //           modal.hide();
+        //           $("#fiter-first").show();
+        //           $(".table-wrapper-clr").hide();
+        //           $("#second-filter-step .select-name").text("--Select--");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     classes: "modal-popup",
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
 
-          // 8 start
-          {
-            arrow: false,
-            text: "To manage the available resources, let's select the platform and object type under My Objects.",
-            attachTo: {
-              element: "#fiter-first-tour",
-              on: "bottom",
-            },
-            classes: "fiter-first-tour-2 btn-none",
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            when: {
-              show: () => {
-                $("#fiter-first-tour .select-tag").unbind("click").off("click");
-                $("#fiter-first-tour .select-tag").on("click", function () {
-                  $(this).closest(".cutom-select").addClass("active");
-                  $(
-                    ".shepherd-element.fiter-first-tour-2.btn-none button"
-                  ).click();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Select the object type from the dropdown",
-            attachTo: {
-              element: "#second-filter-step",
-              on: "right",
-            },
-            classes: "second-step",
-            when: {
-              show: () => {
-                $(".shepherd-element.fiter-first-tour-2").remove();
-                $("#second-filter-step .option-main")
-                  .unbind("click")
-                  .off("click");
-                $("#second-filter-step .option-main").on("click", function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  $(this).closest(".cutom-select").removeClass("active");
-                  $("#fiter-first").hide();
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Click the Action button to perform the Day2 action.",
-            attachTo: {
-              element: "#table-first-step",
-              on: "top-end",
-            },
-            classes: "table-first-step",
-            when: {
-              show: () => {
-                $(".table-wrapper-clr").show();
-                $("#table-first-step").unbind("click").off("click");
-                $("#table-start-action").unbind("click").off("click");
-                $("#table-first-step").on("click", function () {
-                  $(this).find(".action-wrapper").addClass("active");
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 1,
-          },
-          {
-            arrow: false,
-            text: "The dropdown shows the actions that can be taken for the selected object",
-            attachTo: {
-              element: "#table-action-drop-wrap",
-              on: "left",
-            },
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            when: {
-              show: () => {
-                $("#table-start-action").unbind("click").off("click");
-                $("#table-first-step").unbind("click").off("click");
-              },
-            },
-            classes: "table-action-drop-wrap",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "To resize the server, scroll through the actions and select Resize Server.",
-            attachTo: {
-              element: "#table-action-drop-wrap",
-              on: "left",
-            },
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            classes: "table-action-drop-wrap",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "You'll see a popup window once you click on the Day2 action.",
-            attachTo: {
-              element: "#table-resize-server",
-              on: "left",
-            },
-            when: {
-              show: () => {
-                $("#table-start-action").unbind("click").off("click");
-                $("#table-action-drop-wrap").animate(
-                  {
-                    scrollTop: "-" + $("#table-action-drop-wrap").offset().top,
-                  },
-                  2
-                );
-                $("#table-resize-server").on("click", function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  modal2.show();
-                  tour.next();
-                });
-              },
-            },
-            classes: "table-resize-server",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Fill in the required details by selecting from the dropdown menu",
-            attachTo: {
-              element: "#modal-2-first-step",
-              on: "bottom",
-            },
-            classes: "modal-2-first-step",
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Select the new instance size",
-            attachTo: {
-              element: "#modal-2-select-first",
-              on: "right",
-            },
-            classes: "modal-2-select-first",
-            when: {
-              show: () => {
-                $("#modal-2-select-first").addClass("active");
-                $("#modal-2-select-first .option-main").on(
-                  "click",
-                  function () {
-                    $("#modal-2-select-first").removeClass("active");
-                    tour.next();
-                  }
-                );
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Pick the Customization Execution window <br>(Note: It shouldn't be the same as other tasks",
-            attachTo: {
-              element: "#modal-2-select-second",
-              on: "left",
-            },
-            classes: "modal-2-select-second",
-            when: {
-              show: () => {
-                $("#modal-2-select-second").addClass("active");
-                $("#modal-2-select-second .option-main").on(
-                  "click",
-                  function () {
-                    $("#modal-2-select-second").removeClass("active");
-                    tour.next();
-                  }
-                );
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Add Remarks",
-            attachTo: {
-              element: "#modal-remark",
-              on: "right",
-            },
-            buttons: [
-              {
-                text: "Next",
-                action: () => {
-                  if ($("#modal-remark-input").val().length > 0) {
-                    $("#modal-remark-input").css("border-color", "#bcd3df");
-                    tour.next();
-                  } else {
-                    $("#modal-remark-input").css("border-color", "red");
-                  }
-                },
-              },
-            ],
-            classes: "modal-remark",
-            when: {
-              show: () => {
-                $("#modal-remark-input").removeAttr("disabled");
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Click on Submit to create a request.",
-            attachTo: {
-              element: "#modaltour2btn",
-              on: "bottom",
-            },
-            classes: "modaltour2btn",
-            when: {
-              show: () => {
-                $("#modaltour2btn").on("click", function () {
-                  $(this)
-                    .closest(".modal-body")
-                    .find(".modal-pop-up-wrapper")
-                    .css("display", "flex");
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "The request has been created, <br>and once it's approved, <br>it'll be executed.",
-            attachTo: {
-              element: "#modal-popup2",
-              on: "left",
-            },
-            when: {
-              show: () => {
-                $("#modal-popup2 button").on("click", function () {
-                  modal2.hide();
-                  $("#fiter-first").show();
-                  $(".table-wrapper-clr").hide();
-                  $("#second-filter-step .select-name").text("--Select--");
-                  tour.next();
-                });
-              },
-            },
-            classes: "modal-popup",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "To manage the available resources, let's select the platform and object type under My Objects.",
-            attachTo: {
-              element: "#fiter-first-tour",
-              on: "bottom",
-            },
-            classes: "fiter-first-tour-2 btn-none",
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            when: {
-              show: () => {
-                $("#fiter-first-tour .select-tag").unbind("click").off("click");
-                $("#fiter-first-tour .select-tag").on("click", function () {
-                  $(this).closest(".cutom-select").addClass("active");
-                  $(
-                    ".shepherd-element.fiter-first-tour-2.btn-none button"
-                  ).click();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Select the object type from the dropdown",
-            attachTo: {
-              element: "#second-filter-step",
-              on: "right",
-            },
-            classes: "second-step",
-            when: {
-              show: () => {
-                $(".shepherd-element.fiter-first-tour-2").remove();
-                $("#second-filter-step .option-main")
-                  .unbind("click")
-                  .off("click");
-                $("#second-filter-step .option-main").on("click", function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  $(this).closest(".cutom-select").removeClass("active");
-                  $("#fiter-first").hide();
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Click the Action button to perform the Day2 action.",
-            attachTo: {
-              element: "#table-first-step",
-              on: "top-end",
-            },
-            classes: "table-first-step",
-            when: {
-              show: () => {
-                $("#table-first-step .action-wrapper").removeClass("active");
-                $(".table-wrapper-clr").show();
-                $("#table-first-step").unbind("click").off("click");
-                $("#table-start-action").unbind("click").off("click");
-                $("#table-first-step").on("click", function () {
-                  $(this).find(".action-wrapper").addClass("active");
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 1,
-          },
-          {
-            arrow: false,
-            text: "The dropdown shows the actions that can be taken for the selected object<br><br>To Add additional space to your resource, scroll through the actions and select Disk Add.",
-            attachTo: {
-              element: "#table-action-drop-wrap",
-              on: "left",
-            },
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            when: {
-              show: () => {
-                $("#table-start-action").unbind("click").off("click");
-                $("#table-first-step").unbind("click").off("click");
-                $("#table-resize-server").unbind("click").off("click");
-                $("#table-resize-server").on("click", function () {
-                  return false;
-                });
-                $("#table-resize-server").removeAttr("id");
-              },
-            },
-            classes: "table-action-drop-wrap",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "To Add additional space to your resource, scroll through the actions and select Disk Add.",
-            attachTo: {
-              element: "#table-action-drop-wrap",
-              on: "left",
-            },
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            classes: "table-action-drop-wrap",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "To Add additional space to your resource, scroll through the actions and select Disk Add.<br<br>You'll see a popup window once you click on the Day2 action.",
-            attachTo: {
-              element: "#table-disk-add",
-              on: "left",
-            },
-            when: {
-              show: () => {
-                $("#table-action-drop-wrap").animate(
-                  {
-                    scrollTop: "-" + $("#table-action-drop-wrap").offset().top,
-                  },
-                  2
-                );
-                $("#table-disk-add").on("click", function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  modal3.show();
-                  tour.next();
-                });
-              },
-            },
-            classes: "table-resize-server",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Fill in the required details by selecting from the dropdown menu",
-            attachTo: {
-              element: "#modal-3-first-step",
-              on: "bottom",
-            },
-            classes: "modal-3-first-step",
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Pick the Customization Execution window <br>(Note: It shouldn't be the same as other tasks)",
-            attachTo: {
-              element: "#modal-3-select-second",
-              on: "left",
-            },
-            classes: "modal-3-select-second",
-            when: {
-              show: () => {
-                $("#modal-3-select-second").addClass("active");
-                $("#modal-3-select-second .option-main").on(
-                  "click",
-                  function () {
-                    $("#modal-3-select-second").removeClass("active");
-                    tour.next();
-                  }
-                );
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Select Drive letter/ File System Name for the Additional Drive that you want to add",
-            attachTo: {
-              element: "#modal-3-select-third",
-              on: "right",
-            },
-            classes: "modal-3-select-third",
-            when: {
-              show: () => {
-                $("#modal-3-select-third").addClass("active");
-                $("#modal-3-select-third .option-main").on(
-                  "click",
-                  function () {
-                    $("#modal-3-select-third").removeClass("active");
-                    tour.next();
-                  }
-                );
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Select the Drive Size (in GB) for the Additional Drive.",
-            attachTo: {
-              element: "#modal-3-select-fourth",
-              on: "left",
-            },
-            classes: "modal-3-select-fourth",
-            when: {
-              show: () => {
-                $("#modal-3-select-fourth").addClass("active");
-                $("#modal-3-select-fourth .option-main").on(
-                  "click",
-                  function () {
-                    $("#modal-3-select-fourth").removeClass("active");
-                    tour.next();
-                  }
-                );
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Click on Add Drives to add the selection",
-            attachTo: {
-              element: "#modal-3-add-drive",
-              on: "left",
-            },
-            classes: "modal-3-add-drive",
-            when: {
-              show: () => {
-                $("#modal-3-add-drive").on("click", function () {
-                  var selectVal = $(
-                    "#modal-3-select-fourth .select-name"
-                  ).text();
-                  $("#modal-3-drive-result .drive-text").text(
-                    "1.G (Drive) " + selectVal + " (GB)"
-                  );
-                  $("#modal-3-drive-result").css("display", "flex");
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "The Added Drive is shown in the list",
-            attachTo: {
-              element: "#modal-3-drive-result",
-              on: "right",
-            },
-            classes: "modal-3-drive-result",
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            when: {
-              show: () => {
-                var selectVal = $("#modal-3-select-fourth .select-name").text();
-                $("#modal-3-drive-result .drive-text").text(
-                  "1.G (Drive) " + selectVal + " (GB)"
-                );
-                $("#modal-3-drive-result").css("display", "flex");
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Add Remarks",
-            attachTo: {
-              element: "#modal-remark-3",
-              on: "right",
-            },
-            buttons: [
-              {
-                text: "Next",
-                action: () => {
-                  if ($("#modal-remark-input-3").val().length > 0) {
-                    $("#modal-remark-input-3").css("border-color", "#bcd3df");
-                    tour.next();
-                  } else {
-                    $("#modal-remark-input-3").css("border-color", "red");
-                  }
-                },
-              },
-            ],
-            classes: "modal-remark",
-            when: {
-              show: () => {
-                $("#modal-remark-input-3").removeAttr("disabled");
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Click on Submit to create a request.",
-            attachTo: {
-              element: "#modaltour3btn",
-              on: "bottom",
-            },
-            classes: "modaltour3btn",
-            when: {
-              show: () => {
-                $("#modaltour3btn").on("click", function () {
-                  $(this)
-                    .closest(".modal-body")
-                    .find(".modal-pop-up-wrapper")
-                    .css("display", "flex");
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "The request has been created, <br>and once it's approved, <br>it'll be executed.",
-            attachTo: {
-              element: "#modal-popup3",
-              on: "left",
-            },
-            when: {
-              show: () => {
-                tour.complete();
-                $("body > *").removeClass("d-flex").hide();
-                $(".thank-you").show();
-              },
-            },
-          },
+        //   // 8 start
+        //   {
+        //     arrow: false,
+        //     text: "To manage the available resources, let's select the platform and object type under My Objects.",
+        //     attachTo: {
+        //       element: "#fiter-first-tour",
+        //       on: "bottom",
+        //     },
+        //     classes: "fiter-first-tour-2 btn-none",
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     when: {
+        //       show: () => {
+        //         $("#fiter-first-tour .select-tag").unbind("click").off("click");
+        //         $("#fiter-first-tour .select-tag").on("click", function () {
+        //           $(this).closest(".cutom-select").addClass("active");
+        //           $(
+        //             ".shepherd-element.fiter-first-tour-2.btn-none button"
+        //           ).click();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Select the object type from the dropdown",
+        //     attachTo: {
+        //       element: "#second-filter-step",
+        //       on: "right",
+        //     },
+        //     classes: "second-step",
+        //     when: {
+        //       show: () => {
+        //         $(".shepherd-element.fiter-first-tour-2").remove();
+        //         $("#second-filter-step .option-main")
+        //           .unbind("click")
+        //           .off("click");
+        //         $("#second-filter-step .option-main").on("click", function (e) {
+        //           e.preventDefault();
+        //           e.stopPropagation();
+        //           $(this).closest(".cutom-select").removeClass("active");
+        //           $("#fiter-first").hide();
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Click the Action button to perform the Day2 action.",
+        //     attachTo: {
+        //       element: "#table-first-step",
+        //       on: "top-end",
+        //     },
+        //     classes: "table-first-step",
+        //     when: {
+        //       show: () => {
+        //         $(".table-wrapper-clr").show();
+        //         $("#table-first-step").unbind("click").off("click");
+        //         $("#table-start-action").unbind("click").off("click");
+        //         $("#table-first-step").on("click", function () {
+        //           $(this).find(".action-wrapper").addClass("active");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 1,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "The dropdown shows the actions that can be taken for the selected object",
+        //     attachTo: {
+        //       element: "#table-action-drop-wrap",
+        //       on: "left",
+        //     },
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     when: {
+        //       show: () => {
+        //         $("#table-start-action").unbind("click").off("click");
+        //         $("#table-first-step").unbind("click").off("click");
+        //       },
+        //     },
+        //     classes: "table-action-drop-wrap",
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "To resize the server, scroll through the actions and select Resize Server.",
+        //     attachTo: {
+        //       element: "#table-action-drop-wrap",
+        //       on: "left",
+        //     },
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     classes: "table-action-drop-wrap",
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "You'll see a popup window once you click on the Day2 action.",
+        //     attachTo: {
+        //       element: "#table-resize-server",
+        //       on: "left",
+        //     },
+        //     when: {
+        //       show: () => {
+        //         $("#table-start-action").unbind("click").off("click");
+        //         $("#table-action-drop-wrap").animate(
+        //           {
+        //             scrollTop: "-" + $("#table-action-drop-wrap").offset().top,
+        //           },
+        //           2
+        //         );
+        //         $("#table-resize-server").on("click", function (e) {
+        //           e.preventDefault();
+        //           e.stopPropagation();
+        //           modal2.show();
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     classes: "table-resize-server",
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Fill in the required details by selecting from the dropdown menu",
+        //     attachTo: {
+        //       element: "#modal-2-first-step",
+        //       on: "bottom",
+        //     },
+        //     classes: "modal-2-first-step",
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Select the new instance size",
+        //     attachTo: {
+        //       element: "#modal-2-select-first",
+        //       on: "right",
+        //     },
+        //     classes: "modal-2-select-first",
+        //     when: {
+        //       show: () => {
+        //         $("#modal-2-select-first").addClass("active");
+        //         $("#modal-2-select-first .option-main").on(
+        //           "click",
+        //           function () {
+        //             $("#modal-2-select-first").removeClass("active");
+        //             tour.next();
+        //           }
+        //         );
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Pick the Customization Execution window <br>(Note: It shouldn't be the same as other tasks",
+        //     attachTo: {
+        //       element: "#modal-2-select-second",
+        //       on: "left",
+        //     },
+        //     classes: "modal-2-select-second",
+        //     when: {
+        //       show: () => {
+        //         $("#modal-2-select-second").addClass("active");
+        //         $("#modal-2-select-second .option-main").on(
+        //           "click",
+        //           function () {
+        //             $("#modal-2-select-second").removeClass("active");
+        //             tour.next();
+        //           }
+        //         );
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Add Remarks",
+        //     attachTo: {
+        //       element: "#modal-remark",
+        //       on: "right",
+        //     },
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: () => {
+        //           if ($("#modal-remark-input").val().length > 0) {
+        //             $("#modal-remark-input").css("border-color", "#bcd3df");
+        //             tour.next();
+        //           } else {
+        //             $("#modal-remark-input").css("border-color", "red");
+        //           }
+        //         },
+        //       },
+        //     ],
+        //     classes: "modal-remark",
+        //     when: {
+        //       show: () => {
+        //         $("#modal-remark-input").removeAttr("disabled");
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Click on Submit to create a request.",
+        //     attachTo: {
+        //       element: "#modaltour2btn",
+        //       on: "bottom",
+        //     },
+        //     classes: "modaltour2btn",
+        //     when: {
+        //       show: () => {
+        //         $("#modaltour2btn").on("click", function () {
+        //           $(this)
+        //             .closest(".modal-body")
+        //             .find(".modal-pop-up-wrapper")
+        //             .css("display", "flex");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "The request has been created, <br>and once it's approved, <br>it'll be executed.",
+        //     attachTo: {
+        //       element: "#modal-popup2",
+        //       on: "left",
+        //     },
+        //     when: {
+        //       show: () => {
+        //         $("#modal-popup2 button").on("click", function () {
+        //           modal2.hide();
+        //           $("#fiter-first").show();
+        //           $(".table-wrapper-clr").hide();
+        //           $("#second-filter-step .select-name").text("--Select--");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     classes: "modal-popup",
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "To manage the available resources, let's select the platform and object type under My Objects.",
+        //     attachTo: {
+        //       element: "#fiter-first-tour",
+        //       on: "bottom",
+        //     },
+        //     classes: "fiter-first-tour-2 btn-none",
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     when: {
+        //       show: () => {
+        //         $("#fiter-first-tour .select-tag").unbind("click").off("click");
+        //         $("#fiter-first-tour .select-tag").on("click", function () {
+        //           $(this).closest(".cutom-select").addClass("active");
+        //           $(
+        //             ".shepherd-element.fiter-first-tour-2.btn-none button"
+        //           ).click();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Select the object type from the dropdown",
+        //     attachTo: {
+        //       element: "#second-filter-step",
+        //       on: "right",
+        //     },
+        //     classes: "second-step",
+        //     when: {
+        //       show: () => {
+        //         $(".shepherd-element.fiter-first-tour-2").remove();
+        //         $("#second-filter-step .option-main")
+        //           .unbind("click")
+        //           .off("click");
+        //         $("#second-filter-step .option-main").on("click", function (e) {
+        //           e.preventDefault();
+        //           e.stopPropagation();
+        //           $(this).closest(".cutom-select").removeClass("active");
+        //           $("#fiter-first").hide();
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Click the Action button to perform the Day2 action.",
+        //     attachTo: {
+        //       element: "#table-first-step",
+        //       on: "top-end",
+        //     },
+        //     classes: "table-first-step",
+        //     when: {
+        //       show: () => {
+        //         $("#table-first-step .action-wrapper").removeClass("active");
+        //         $(".table-wrapper-clr").show();
+        //         $("#table-first-step").unbind("click").off("click");
+        //         $("#table-start-action").unbind("click").off("click");
+        //         $("#table-first-step").on("click", function () {
+        //           $(this).find(".action-wrapper").addClass("active");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 1,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "The dropdown shows the actions that can be taken for the selected object<br><br>To Add additional space to your resource, scroll through the actions and select Disk Add.",
+        //     attachTo: {
+        //       element: "#table-action-drop-wrap",
+        //       on: "left",
+        //     },
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     when: {
+        //       show: () => {
+        //         $("#table-start-action").unbind("click").off("click");
+        //         $("#table-first-step").unbind("click").off("click");
+        //         $("#table-resize-server").unbind("click").off("click");
+        //         $("#table-resize-server").on("click", function () {
+        //           return false;
+        //         });
+        //         $("#table-resize-server").removeAttr("id");
+        //       },
+        //     },
+        //     classes: "table-action-drop-wrap",
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "To Add additional space to your resource, scroll through the actions and select Disk Add.",
+        //     attachTo: {
+        //       element: "#table-action-drop-wrap",
+        //       on: "left",
+        //     },
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     classes: "table-action-drop-wrap",
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "To Add additional space to your resource, scroll through the actions and select Disk Add.<br<br>You'll see a popup window once you click on the Day2 action.",
+        //     attachTo: {
+        //       element: "#table-disk-add",
+        //       on: "left",
+        //     },
+        //     when: {
+        //       show: () => {
+        //         $("#table-action-drop-wrap").animate(
+        //           {
+        //             scrollTop: "-" + $("#table-action-drop-wrap").offset().top,
+        //           },
+        //           2
+        //         );
+        //         $("#table-disk-add").on("click", function (e) {
+        //           e.preventDefault();
+        //           e.stopPropagation();
+        //           modal3.show();
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     classes: "table-resize-server",
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Fill in the required details by selecting from the dropdown menu",
+        //     attachTo: {
+        //       element: "#modal-3-first-step",
+        //       on: "bottom",
+        //     },
+        //     classes: "modal-3-first-step",
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Pick the Customization Execution window <br>(Note: It shouldn't be the same as other tasks)",
+        //     attachTo: {
+        //       element: "#modal-3-select-second",
+        //       on: "left",
+        //     },
+        //     classes: "modal-3-select-second",
+        //     when: {
+        //       show: () => {
+        //         $("#modal-3-select-second").addClass("active");
+        //         $("#modal-3-select-second .option-main").on(
+        //           "click",
+        //           function () {
+        //             $("#modal-3-select-second").removeClass("active");
+        //             tour.next();
+        //           }
+        //         );
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Select Drive letter/ File System Name for the Additional Drive that you want to add",
+        //     attachTo: {
+        //       element: "#modal-3-select-third",
+        //       on: "right",
+        //     },
+        //     classes: "modal-3-select-third",
+        //     when: {
+        //       show: () => {
+        //         $("#modal-3-select-third").addClass("active");
+        //         $("#modal-3-select-third .option-main").on(
+        //           "click",
+        //           function () {
+        //             $("#modal-3-select-third").removeClass("active");
+        //             tour.next();
+        //           }
+        //         );
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Select the Drive Size (in GB) for the Additional Drive.",
+        //     attachTo: {
+        //       element: "#modal-3-select-fourth",
+        //       on: "left",
+        //     },
+        //     classes: "modal-3-select-fourth",
+        //     when: {
+        //       show: () => {
+        //         $("#modal-3-select-fourth").addClass("active");
+        //         $("#modal-3-select-fourth .option-main").on(
+        //           "click",
+        //           function () {
+        //             $("#modal-3-select-fourth").removeClass("active");
+        //             tour.next();
+        //           }
+        //         );
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Click on Add Drives to add the selection",
+        //     attachTo: {
+        //       element: "#modal-3-add-drive",
+        //       on: "left",
+        //     },
+        //     classes: "modal-3-add-drive",
+        //     when: {
+        //       show: () => {
+        //         $("#modal-3-add-drive").on("click", function () {
+        //           var selectVal = $(
+        //             "#modal-3-select-fourth .select-name"
+        //           ).text();
+        //           $("#modal-3-drive-result .drive-text").text(
+        //             "1.G (Drive) " + selectVal + " (GB)"
+        //           );
+        //           $("#modal-3-drive-result").css("display", "flex");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "The Added Drive is shown in the list",
+        //     attachTo: {
+        //       element: "#modal-3-drive-result",
+        //       on: "right",
+        //     },
+        //     classes: "modal-3-drive-result",
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: tour.next,
+        //       },
+        //     ],
+        //     when: {
+        //       show: () => {
+        //         var selectVal = $("#modal-3-select-fourth .select-name").text();
+        //         $("#modal-3-drive-result .drive-text").text(
+        //           "1.G (Drive) " + selectVal + " (GB)"
+        //         );
+        //         $("#modal-3-drive-result").css("display", "flex");
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Add Remarks",
+        //     attachTo: {
+        //       element: "#modal-remark-3",
+        //       on: "right",
+        //     },
+        //     buttons: [
+        //       {
+        //         text: "Next",
+        //         action: () => {
+        //           if ($("#modal-remark-input-3").val().length > 0) {
+        //             $("#modal-remark-input-3").css("border-color", "#bcd3df");
+        //             tour.next();
+        //           } else {
+        //             $("#modal-remark-input-3").css("border-color", "red");
+        //           }
+        //         },
+        //       },
+        //     ],
+        //     classes: "modal-remark",
+        //     when: {
+        //       show: () => {
+        //         $("#modal-remark-input-3").removeAttr("disabled");
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "Click on Submit to create a request.",
+        //     attachTo: {
+        //       element: "#modaltour3btn",
+        //       on: "bottom",
+        //     },
+        //     classes: "modaltour3btn",
+        //     when: {
+        //       show: () => {
+        //         $("#modaltour3btn").on("click", function () {
+        //           $(this)
+        //             .closest(".modal-body")
+        //             .find(".modal-pop-up-wrapper")
+        //             .css("display", "flex");
+        //           tour.next();
+        //         });
+        //       },
+        //     },
+        //     highlightClass: "highlight-layer",
+        //     modalOverlayOpeningPadding: 3,
+        //   },
+        //   {
+        //     arrow: false,
+        //     text: "The request has been created, <br>and once it's approved, <br>it'll be executed.",
+        //     attachTo: {
+        //       element: "#modal-popup3",
+        //       on: "left",
+        //     },
+        //     when: {
+        //       show: () => {
+        //         tour.complete();
+        //         $("body > *").removeClass("d-flex").hide();
+        //         $(".thank-you").show();
+        //       },
+        //     },
+        //   },
         ]);
         tour.start();
         $(".action-wrapper .action-drop").on(
