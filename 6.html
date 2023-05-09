@@ -68,7 +68,8 @@
       class="popup-wrapper position-absolute justify-content-center align-items-center"
       style="display: none"
     >
-      <a id="popup1"
+      <a
+        id="popup1"
         href="7.html"
         class="popup d-flex justify-content-center align-items-center"
       >
@@ -1183,16 +1184,22 @@
         var modal4 = new bootstrap.Modal($("#modaltour-4"), {
           keyboard: false,
         });
-        
-        document.getElementById("popup1").addEventListener("click", function(){
-            localStorage.setItem("popup1", true)
-        });
-        document.getElementById("popup2").addEventListener("click", function(){
-            localStorage.setItem("popup2", true)
-        });
-        document.getElementById("popup3").addEventListener("click", function(){
-            localStorage.setItem("popup3", true)
-        });
+
+        document
+          .getElementById("popup1")
+          .addEventListener("click", function () {
+            localStorage.setItem("popup1", true);
+          });
+        document
+          .getElementById("popup2")
+          .addEventListener("click", function () {
+            localStorage.setItem("popup2", true);
+          });
+        document
+          .getElementById("popup3")
+          .addEventListener("click", function () {
+            localStorage.setItem("popup3", true);
+          });
         const tour = new Shepherd.Tour({
           //   useModalOverlay: true,
           exitOnEsc: false,
@@ -1326,10 +1333,9 @@
                   tour.complete();
                   $("body > *").removeClass("d-flex").hide();
                   $(".thank-you").show();
-                  localStorage.removeItem('popup1');
-                  localStorage.removeItem('popup2');
-                  localStorage.removeItem('popup3');
-
+                  localStorage.removeItem("popup1");
+                  localStorage.removeItem("popup2");
+                  localStorage.removeItem("popup3");
                 }
               },
             },
