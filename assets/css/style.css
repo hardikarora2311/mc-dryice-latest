@@ -2103,6 +2103,10 @@ div#modaltour-4 .modal-dialog {
     z-index: 2000 !important;
   }
 
+  .option .option-main{
+    margin: 0.5em 0;
+  }
+
 
 
 

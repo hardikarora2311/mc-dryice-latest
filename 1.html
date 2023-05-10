@@ -230,7 +230,7 @@
           arrow: false,
           text: "Let's begin by navigating to the Request menu",
           attachTo: {
-            element: "#third-step",
+            element: ".third-step",
             on: "bottom",
           },
 
@@ -252,8 +252,8 @@
                 element: document.querySelector(".third-step"),
                 padding: 150,
               });
-              $(".third-step").addClass("active");
-              $("#third-step").addClass("new-highlight-layer");
+              // $(".third-step").addClass("active");
+              $(".third-step").addClass("new-highlight-layer");
             },
           },
 
@@ -272,6 +272,12 @@
           when: {
             show: () => {
               zoom.out();
+              $(".third-step").addClass("active");
+              $(".third-step").removeClass("new-highlight-layer");
+
+              $("#third-step").addClass("new-highlight-layer");
+
+
             },
           },
 
