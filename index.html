@@ -22,14 +22,6 @@
         font-family: "Montserrat", sans-serif;
         width: 100%;
         height: 100vh;
-        /* background: rgb(0, 0, 0);
-        background: linear-gradient(
-          14deg,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 119, 181, 1) 0%,
-          rgba(0, 0, 0, 1) 100%,
-          rgba(0, 100, 152, 1) 100%
-        ); */
 
         background-color: rgb(51, 57, 64, 0.3);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
@@ -57,7 +49,12 @@
         padding: 0.7em 1.9em;
         border-radius: 20px;
         border: none;
+        transition: all 0.2s ease;
       }
+      .btn1:hover{
+        background-color: rgba(162, 216, 238, 0.5);
+      }
+
       .use-case-wrapper {
         width: 55%;
         height: 380px;
@@ -107,17 +104,41 @@
         border-radius: 0.2em;
         margin: 0.5em 0.5em;
         margin-bottom: 0.6em;
+        transition: all 0.2s ease;
+      }
+      .usecase-btn:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 5px;
+        right: -5%;
+        background: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 36px;
+        color: white;
+        border: 2px solid white;
+        background: grey;
+      }
+      .close-btn:hover {
+        color: black;
+      }
+      .use-case:hover {
+        transform: none !important;
       }
     </style>
   </head>
 
   <body class="text-light">
-    <div id="prelaoder">
+    <!-- <div id="prelaoder">
       <video autoplay muted>
         <source src="assets/images/Logo_Merged.mp4" type="video/mp4" />
         Your browser does not support html video
       </video>
-    </div>
+    </div> -->
     <div
       style="height: 100%"
       class="wrapper d-flex flex-column justify-content-center position-relative"
@@ -125,21 +146,39 @@
       <div
         class="use-case-wrapper visually-hidden use-case-modal position-absolute d-flex align-items-center rounded"
       >
+        <!-- IFRAME YOUTUBE VIDEOS -->
+        <div class="position-absolute z-5 visually-hidden" id="iframeDisplay1">
+          <iframe
+            width="1000"
+            height="562"
+            src="https://www.youtube.com/embed/aOzLFbC3FCE"
+            title="1st Use Case"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="position-absolute z-5 visually-hidden" id="iframeDisplay2">
+          <iframe
+            width="1000"
+            height="562"
+            src="https://www.youtube.com/embed/NusWG1x6GBQ"
+            title="2nd Use Case"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
         <div class="use-case">
           <img src="assets/images/logo-mycloud.png" alt="" width="100" />
           <p>MyCloud Use Case 1</p>
 
           <div class="btn-wrapper">
             <a href="login-1.html" class="usecase-btn">Click through</a>
-            <a
-              target="_blank"
-              href="https://drive.google.com/file/d/1haFFeqcn85wy4RFXNnT1kX0xSKdCWwdm/view?usp=share_link"
-              class="usecase-btn"
-              >Watch video</a
-            >
+            <button class="usecase-btn" onclick="displayIframe1()">
+              Watch Video
+            </button>
           </div>
-
-          <!-- <a href="1.html">View</a> -->
         </div>
         <div class="use-case">
           <img src="assets/images/logo-mycloud.png" alt="" width="100" />
@@ -147,12 +186,9 @@
 
           <div class="btn-wrapper">
             <a href="login-2.html" class="usecase-btn">Click through</a>
-            <a
-              target="_blank"
-              href="https://drive.google.com/file/d/1LHCz4uNTiDftFkx4UlceldHVXrgValqz/view?usp=share_link"
-              class="usecase-btn"
-              >Watch video</a
-            >
+            <button class="usecase-btn" onclick="displayIframe2()">
+              Watch Video
+            </button>
           </div>
 
           <!-- <a href="6.html">View</a> -->
@@ -210,6 +246,32 @@
         } else {
           element.classList.add("visually-hidden");
         }
+      }
+
+      function displayIframe1() {
+        var iframe = document.getElementById("iframeDisplay1");
+        iframe.classList.remove("visually-hidden");
+        var closeBtn = document.createElement("button");
+        closeBtn.innerHTML = "&#10006;"; // X symbol
+        closeBtn.classList.add("close-btn");
+        closeBtn.onclick = function () {
+          iframe.classList.add("visually-hidden");
+          this.parentNode.removeChild(this);
+        };
+        iframe.appendChild(closeBtn);
+      }
+
+      function displayIframe2() {
+        var iframe = document.getElementById("iframeDisplay2");
+        iframe.classList.remove("visually-hidden");
+        var closeBtn = document.createElement("button");
+        closeBtn.innerHTML = "&#10006;"; // X symbol
+        closeBtn.classList.add("close-btn");
+        closeBtn.onclick = function () {
+          iframe.classList.add("visually-hidden");
+          this.parentNode.removeChild(this);
+        };
+        iframe.appendChild(closeBtn);
       }
     </script>
   </body>
