@@ -85,9 +85,14 @@
                     <span class="select-name">--Select--</span>
                     <div class="select-option-list">
                       <div class="option">--Select--</div>
-                      <div class="option option-main">DryiceMyCloudAzureRM</div>
-                      <div class="option option-main">MyCldAzureRMBilling1</div>
-                      <div class="option option-main">AzureAdvisory</div>
+                      <div
+                        class="option option-main"
+                        onclick="myFunction(this)"
+                      >
+                        DryiceMyCloudAzureRM
+                      </div>
+                      <div class="option option-main" onclick="myFunction(this)">MyCldAzureRMBilling1</div>
+                      <div class="option option-main" onclick="myFunction(this)">AzureAdvisory</div>
                     </div>
                   </div>
                 </div>
@@ -219,6 +224,9 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/shepherd.min.js"></script>
     <script>
+      var myFunction = function (target) {
+        $(".select-name").html(target.innerHTML);
+      };
       jQuery("body").keydown(function (e) {
         if (
           e.keyCode == 27 ||
@@ -253,7 +261,7 @@
           arrow: false,
           text: "Great! Now that you're on the service catalog page, pick a provisioning endpoint to populate configured catalogs.",
           attachTo: {
-            element: "#first-step",
+            element: ".select-option-list",
             on: "bottom",
           },
           highlightClass: "highlight-layer",
@@ -263,10 +271,12 @@
               $(".no-data-td .no-data").show();
               $(".no-data-td .catalog-card-list").hide();
               $("#first-step").addClass("active");
+
               $("#first-step .option-main").on("click", function () {
                 $(".cutom-select").removeClass("active");
                 $(".no-data-td .no-data").hide();
                 $(".no-data-td .catalog-card-list").show();
+            
                 tour.next();
               });
             },
@@ -277,7 +287,7 @@
           arrow: false,
           text: "On this page you can see the catalog that has been populated, along with the option to filter by IaaS, PaaS, or blueprint.",
           attachTo: {
-            on: "bottom-start",
+            // on: "bottom",
           },
           classes: "second-step right-left",
           buttons: [

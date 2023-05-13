@@ -14,6 +14,7 @@
     class="main-dashboard min-h-100"
     style="overflow: hidden; height: 100vh"
   >
+  <div class="darkscale" style="display: none;"></div>
     <div
       class="top-bar-main d-flex justify-content-between"
       style="padding: 0 25px; background: #0077b5; color: #fff"
@@ -242,7 +243,12 @@
                         <div class="select-option-list">
                           <div class="option">--Select--</div>
                           <div class="option option-main">Development</div>
-                          <div class="option option-main">Production</div>
+                          <div
+                            class="option option-main"
+                            onclick="myFunction(this)"
+                          >
+                            Production
+                          </div>
                           <div class="option option-main">QA</div>
                           <div class="option option-main">Test</div>
                         </div>
@@ -261,7 +267,9 @@
                     </p>
                     <div class="cutom-select" id="sixth-step">
                       <div class="select-tag">
-                        <span class="select-name">--Select--</span>
+                        <span class="select-name" id="year-selection"
+                          >--Select--</span
+                        >
                         <div class="select-option-list">
                           <div class="option">--Select--</div>
                           <div class="option option-main">Day(s)</div>
@@ -282,7 +290,7 @@
                         title="Select Application Name the Services required For. Applications name will be listed down based on selected hosting location and data localisation regulations. For Example if the Hosting location is Europe, only applications can be hosted in Europe will be listed."
                       />
                     </p>
-                    <p class="type-input">99</p>
+                    <input type="number" id="lease-val" placeholder="99" class="type-input" >
                   </div>
                   <div class="form-group" id="seventh-step">
                     <p class="label">
@@ -492,7 +500,9 @@
                     </p>
                     <div class="cutom-select">
                       <div class="select-tag">
-                        <span class="select-name">Week 2 - Saturday, 17:00 - 19:00</span>
+                        <span class="select-name"
+                          >Week 2 - Saturday, 17:00 - 19:00</span
+                        >
                         <div class="select-option-list">
                           <div class="option">--Select--</div>
                           <div class="option option-main">Development</div>
@@ -754,7 +764,9 @@
                     </p>
                     <div class="cutom-select">
                       <div class="select-tag">
-                        <span class="select-name">Week 2 - Saturday, 17:00 - 19:00</span>
+                        <span class="select-name"
+                          >Week 2 - Saturday, 17:00 - 19:00</span
+                        >
                         <div class="select-option-list">
                           <div class="option">--Select--</div>
                           <div class="option option-main">Development</div>
@@ -1010,7 +1022,9 @@
                     </p>
                     <div class="cutom-select">
                       <div class="select-tag">
-                        <span class="select-name">Week 2 - Sunday, 17:00 - 19:00</span>
+                        <span class="select-name"
+                          >Week 2 - Sunday, 17:00 - 19:00</span
+                        >
                         <div class="select-option-list">
                           <div class="option">--Select--</div>
                           <div class="option option-main">Development</div>
@@ -1141,13 +1155,13 @@
                         <td>
                           <div class="form-group">
                             <p class="label">Key:</p>
-                            <p class="type-input"></p>
+                            <input type="text" class="type-input" id="key-text"/>
                           </div>
                         </td>
                         <td>
                           <div class="form-group">
                             <p class="label">Value:</p>
-                            <p class="type-input"></p>
+                            <input type="text" class="type-input" id="value-text"/>
                           </div>
                         </td>
                         <td><img src="assets/images/log-plus.jpg" /></td>
@@ -1224,7 +1238,7 @@
           <a href="#" class="btn btn-primary-blue d-none" id="previous-btn"
             >Previous</a
           >
-          <a href="#" class="btn btn-primary-blue" id="main-submit">Submit</a>
+          <a href="#" class="btn btn-primary-blue" id="main-submit">Next</a>
         </div>
       </div>
     </div>
@@ -1356,6 +1370,13 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/shepherd.min.js"></script>
     <script>
+      var x = false;
+
+      var myFunction = function (target) {
+        $("#year-selection").html("Year(s)");
+        $("#lease-val").val(99);
+        x = true;
+      };
       jQuery("body").keydown(function (e) {
         if (
           e.keyCode == 27 ||
@@ -1433,7 +1454,6 @@
           },
           classes: "thirdd-step btn-none",
           buttons: [
-
             {
               text: "Next",
               action: tour.next,
@@ -1533,12 +1553,12 @@
         },
         {
           arrow: false,
-          text: "By clicking the dropdown, you can choose days, weeks, months, or years as the lease period, since the server environment is set for production, it is disabled and set for 99 years",
+          text: "By clicking the dropdown, you can choose days, weeks, months, or years as the lease period, if the server environment is set for Production, it is disabled and set for 99 years",
           attachTo: {
             element: "#sixth-step",
             on: "right",
           },
-          classes: "sixth-step btn-none",
+          classes: "sixth-step",
           buttons: [
             {
               text: "Next",
@@ -1549,12 +1569,39 @@
           when: {
             show: () => {
               $("#sixth-step").addClass("active");
+              if (x == true) {
+                $("#sixth-step").removeClass("active");
+              }
               $("#sixth-step .option-main").on("click", function () {
                 $("#sixth-step").removeClass("active");
                 $(".shepherd-element.sixth-step.btn-none button").click();
               });
             },
           },
+          modalOverlayOpeningPadding: 2,
+        },
+        {
+          arrow: false,
+          text: "Manually enter the Lease Period Value",
+          attachTo: {
+            element: "#lease-val",
+            on: "left",
+          },
+          classes: "drive-size-db",
+          buttons: [
+            {
+              text: "Next",
+              action: () => {
+                if ($("#lease-val").val().length > 0) {
+                  $("#lease-val").removeClass("error");
+                  tour.next();
+                } else {
+                  $("#lease-val").addClass("error");
+                }
+              },
+            },
+          ],
+          highlightClass: "highlight-layer",
           modalOverlayOpeningPadding: 2,
         },
         {
@@ -1592,7 +1639,7 @@
           arrow: false,
           text: "Let's set up the web server",
           attachTo: {
-            element: "#tab-head-first",
+            element: "#main-submit",
             on: "top",
           },
           classes: "tab-head-first btn-none",
@@ -1605,8 +1652,16 @@
           highlightClass: "highlight-layer",
           when: {
             show: () => {
-              $("#tab-head-first").on("click", function () {
+              $("#main-submit").on("click", function () {
+                // window.location.hash = "#web-server";
+
                 setTimeout(function () {
+                  $("#tab-head-first").addClass("active");
+                  $("#general-btn").removeClass("active");
+                  $("#general").removeClass("active");
+
+                  $("#web-server").addClass("active show");
+
                   $("#previous-btn").removeClass("d-none");
                   tour.next();
                 }, 200);
@@ -1780,8 +1835,8 @@
           arrow: false,
           text: "Let's set up the App server",
           attachTo: {
-            element: "#tab-head-second",
-            on: "top",
+            element: "#main-submit",
+            on: "right",
           },
           classes: "tab-head-second btn-none",
           buttons: [
@@ -1793,10 +1848,39 @@
           highlightClass: "highlight-layer",
           when: {
             show: () => {
-              $("#tab-head-second").on("click", function () {
+              $("#main-submit").on("click", function () {
                 setTimeout(function () {
+                  $("#tab-head-second").addClass("active");
+                  $("#tab-head-first").removeClass("active");
+                  $("#web-server").removeClass("show");
+                  $("#web-server").removeClass("active");
+                  $("#app-server").addClass("active show");
                   tour.next();
                 }, 250);
+              });
+            },
+          },
+          modalOverlayOpeningPadding: 2,
+        },
+        {
+          arrow: false,
+          text: "To select an Instance family, click the dropdown menu",
+          attachTo: {
+            element: "#instance-family-main",
+            on: "right",
+          },
+          classes: "instance-family btn-none",
+          buttons: [
+            {
+              text: "Next",
+              action: tour.next,
+            },
+          ],
+          highlightClass: "highlight-layer",
+          when: {
+            show: () => {
+              $("#instance-family-main").on("click", function () {
+                $(".shepherd-element.instance-family.btn-none button").click();
               });
             },
           },
@@ -1860,8 +1944,8 @@
           arrow: false,
           text: "Let's set up the DB server now",
           attachTo: {
-            element: "#tab-head-third",
-            on: "top",
+            element: "#main-submit",
+            on: "right",
           },
           classes: "tab-head-third btn-none",
           buttons: [
@@ -1873,8 +1957,13 @@
           highlightClass: "highlight-layer",
           when: {
             show: () => {
-              $("#tab-head-third").on("click", function () {
-                setTimeout(() => {
+              $("#main-submit").on("click", function () {
+                setTimeout(function () {
+                  $("#tab-head-third").addClass("active");
+                  $("#tab-head-second").removeClass("active");
+                  $("#app-server").removeClass("show");
+                  $("#app-server").removeClass("active");
+                  $("#db-server").addClass("active show");
                   tour.next();
                 }, 250);
               });
@@ -1882,6 +1971,57 @@
           },
           modalOverlayOpeningPadding: 2,
         },
+        // .......................................
+        {
+          arrow: false,
+          text: "To select an Instance family, click the dropdown menu",
+          attachTo: {
+            element: "#instance-family-main-app",
+            on: "right",
+          },
+          classes: "instance-family-main-app btn-none",
+          highlightClass: "highlight-layer",
+          when: {
+            show: () => {
+              $("#instance-family-main-app ").addClass("active");
+              $("#instance-family-main-app .option-main").on(
+                "click",
+                function (e) {
+                  $("#instance-family-main-app").removeClass("active");
+                  tour.next();
+                }
+              );
+            },
+          },
+          modalOverlayOpeningPadding: 2,
+        },
+        {
+          arrow: false,
+          text: "To select an Instance family, click the dropdown menu",
+          attachTo: {
+            element: "#instance-family-main",
+            on: "right",
+          },
+          classes: "instance-family btn-none",
+          buttons: [
+            {
+              text: "Next",
+              action: tour.next,
+            },
+          ],
+          highlightClass: "highlight-layer",
+          when: {
+            show: () => {
+              $("#instance-family-main").on("click", function () {
+                $(".shepherd-element.instance-family.btn-none button").click();
+              });
+            },
+          },
+          modalOverlayOpeningPadding: 2,
+        },
+
+        // ................................................
+
         {
           arrow: false,
           text: "To select an Instance family, click the dropdown menu",
@@ -2051,8 +2191,8 @@
           arrow: false,
           text: "Tags can be configured through this tab",
           attachTo: {
-            element: "#tab-head-fourth",
-            on: "top",
+            element: "#main-submit",
+            on: "right",
           },
           classes: "tab-head-fourth btn-none",
           buttons: [
@@ -2064,23 +2204,158 @@
           highlightClass: "highlight-layer",
           when: {
             show: () => {
-              $("#tab-head-fourth").on("click", function () {
-                setTimeout(() => {
-                  $("#previous-btn").removeClass("d-none");
-                  $("#main-submit").text("Review and Confirm");
-                  tour.next();
-                }, 250);
+              $("#main-submit").on("click", function () {
+                $("#main-submit").text("Review and Confirm");
+                
+                  $("#tab-head-fourth").addClass("active");
+                  $("#tab-head-third").removeClass("active");
+                  $("#db-server").removeClass("show");
+                  $("#db-server").removeClass("active");
+                  $("#tags").addClass("active show");
+                  // tour.next();
+                
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
+
+        // ..........
+        {
+          arrow: false,
+          text: "To select an Instance family, click the dropdown menu",
+          attachTo: {
+            element: "#instance-family-main",
+            on: "right",
+          },
+          classes: "instance-family btn-none",
+          buttons: [
+            {
+              text: "Next",
+              action: tour.next,
+            },
+          ],
+          highlightClass: "highlight-layer",
+          when: {
+            show: () => {
+              $("#instance-family-main").on("click", function () {
+                $(".shepherd-element.instance-family.btn-none button").click();
+              });
+            },
+          },
+          modalOverlayOpeningPadding: 2,
+        },
+
+        {
+          arrow: false,
+          text: "To select an Instance family, click the dropdown menu",
+          attachTo: {
+            element: "#instance-family-main-db",
+            on: "right",
+          },
+          classes: "instance-family-main-db btn-none",
+          buttons: [
+            {
+              text: "Next",
+              action: tour.next,
+            },
+          ],
+          highlightClass: "highlight-layer",
+          when: {
+            show: () => {
+              $("#instance-family-main-db").addClass("active");
+              $("#instance-family-main-db .option-main").on(
+                "click",
+                function () {
+                  $("#instance-family-main-db").removeClass("active");
+                  $(
+                    ".shepherd-element.instance-family-main-db.btn-none button"
+                  ).click();
+                }
+              );
+            },
+          },
+          modalOverlayOpeningPadding: 2,
+        },
+        // ........................................
+        {
+        arrow: false,
+          text: "Manually enter the Database Size (Applicable for Catalogues)",
+          attachTo: {
+            element: "#key-text",
+            on: "right",
+          },
+          classes: "drive-size-db",
+          buttons: [
+            {
+              text: "Next",
+              action: () => {
+                if ($("#key-text").val().length > 0) {
+                  $("#key-text").removeClass("error");
+                  tour.next();
+                } else {
+                  $("#key-text").addClass("error");
+                }
+              },
+            },
+          ],
+          highlightClass: "highlight-layer",
+          when: {
+            show: () => {
+                $("#main-submit").text("Review and Confirm")
+                  $("#tab-head-fourth").addClass("active");
+                  $("#tab-head-third").removeClass("active");
+                  $("#db-server").removeClass("show");
+                  $("#db-server").removeClass("active");
+                  $("#tags").addClass("active show");
+                  // tour.next();
+            },
+          },
+          modalOverlayOpeningPadding: 2,
+        },
+
+        {
+        arrow: false,
+          text: "Manually enter the Database Size (Applicable for Catalogues)",
+          attachTo: {
+            element: "#value-text",
+            on: "right",
+          },
+          classes: "drive-size-db",
+          buttons: [
+            {
+              text: "Next",
+              action: () => {
+                if ($("#value-text").val().length > 0) {
+                  $("#value-text").removeClass("error");
+                  tour.next();
+                } else {
+                  $("#value-text").addClass("error");
+                }
+              },
+            },
+          ],
+          highlightClass: "highlight-layer",
+          when: {
+            show: () => {
+                $("#main-submit").text("Review and Confirm")
+                  $("#tab-head-fourth").addClass("active");
+                  $("#tab-head-third").removeClass("active");
+                  $("#db-server").removeClass("show");
+                  $("#db-server").removeClass("active");
+                  $("#tags").addClass("active show");
+                  // tour.next();
+            },
+          },
+          modalOverlayOpeningPadding: 2,
+        },
+
         {
           arrow: false,
           text: "Let's move forward now that you've filled out the form by clicking “Review and Confirm\".",
           attachTo: {
             element: "#main-submit",
-            on: "right",
+            on: "top",
           },
           classes: "main-submit btn-none",
           buttons: [
@@ -2098,11 +2373,16 @@
                   "active show"
                 );
                 $(".shepherd-element.main-submit.btn-none button").click();
+
               });
+
             },
           },
           modalOverlayOpeningPadding: 2,
         },
+
+
+        
         {
           arrow: false,
           text: "When you're done reviewing your form, hit Confirm provision",
@@ -2123,6 +2403,10 @@
               new bootstrap.Modal($("#afterSubmit"), {
                 keyboard: false,
               }).show();
+              $("#modal-btn").addClass("highlight-layer");
+              $("#modal-btn").addClass("new-highlight-layer");
+              
+
               $("#modal-btn").on("click", function () {
                 $(".shepherd-element.modal-btn.btn-none button").click();
               });

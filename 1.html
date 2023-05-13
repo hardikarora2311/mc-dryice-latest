@@ -131,7 +131,7 @@
                 <p class="m-0">GCP Service Wise Billing</p>
                 <img src="assets/images/graph-option.PNG" />
               </div>
-              <div class="card-main">
+              <div class="card-main" style="display: none">
                 <img src="assets/images/platform-wise.PNG" />
               </div>
             </div>
@@ -207,11 +207,18 @@
 
         {
           arrow: false,
-          text: "Here's your MyCloud dashboard. A variety of widgets for performance and billing reports are available to provide you with an overview of some of the most useful information",
+          text: "Here's your MyCloud dashboard.",
           attachTo: {
+            element:".main-graph",
             on: "top",
           },
           classes: "example-step-extra-class",
+
+          when: {
+            show: ()=>{
+              $(".darkscale").css("display", "none");
+            }
+          },
 
           buttons: [
             {
@@ -224,6 +231,39 @@
               action: tour.next,
             },
           ],
+          modalOverlayOpeningPadding: 0,
+        },
+
+        {
+          arrow: false,
+          text: "A variety of widgets for performance and billing reports are available to provide you with an overview of some of the most useful information",
+          attachTo: {
+            element:".main-graph",
+            on: "top",
+          },
+          classes: "example-step-extra-class",
+
+          when: {
+            show: ()=>{
+              $(".main-graph").addClass("new-highlight-layer");
+              $(".darkscale").css("display", "initial");
+
+            }
+          },
+
+          buttons: [
+            {
+              text: "Previous",
+              classes: "previous",
+              action: tour.back,
+            },
+            {
+              text: "Next",
+              action: tour.next,
+            },
+          ],
+          highlightClass: "highlight-layer",
+
           modalOverlayOpeningPadding: 0,
         },
         {
@@ -253,7 +293,10 @@
                 padding: 150,
               });
               // $(".third-step").addClass("active");
+              $(".main-graph").removeClass("new-highlight-layer");
+
               $(".third-step").addClass("new-highlight-layer");
+              $(".darkscale").css("display", "initial");
             },
           },
 
