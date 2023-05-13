@@ -1263,85 +1263,85 @@
           //     highlightClass: "highlight-layer",
           //     modalOverlayOpeningPadding: 3,
           //   },
-          {
-            arrow: false,
-            text: "Click 'Go' to move forward.",
-            attachTo: {
-              element: "#fiter-first-tour",
-              on: "bottom",
-            },
-            classes: "fiter-first-tour btn-none",
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            when: {
-              show: () => {
-                $("#fiter-first-tour .select-tag").on("click", function () {
-                  $(this).closest(".cutom-select").addClass("active");
-                  $(
-                    ".shepherd-element.fiter-first-tour.btn-none button"
-                  ).click();
-                  //   zoom.to({
-                  //     element: document.querySelector("#fiter-first-tour"),
-                  //     padding: 180,
-                  //   });
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "Select the object type from the dropdown",
-            attachTo: {
-              element: "#second-filter-step",
-              on: "right",
-            },
-            classes: "second-step",
-            when: {
-              show: () => {
-                $(".shepherd-element.fiter-first-tour").remove();
-                $("#second-filter-step .option-main").on("click", function (e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  $(this).closest(".cutom-select").removeClass("active");
-                  //   zoom.out();
-                  tour.next();
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "When you're done selecting , click 'Go' to move forward.",
-            attachTo: {
-              element: "#filter-go-btn",
-              on: "top",
-            },
-            classes: "filter-go-btn",
-            when: {
-              show: () => {
-                // $("#filter-go-btn").addClass("active-opacity");
-                // $("#filter-go-btn").addClass("new-highlight-layer");
+          // {
+          //   arrow: false,
+          //   text: "Click 'Go' to move forward.",
+          //   attachTo: {
+          //     element: "#fiter-first-tour",
+          //     on: "bottom",
+          //   },
+          //   classes: "fiter-first-tour btn-none",
+          //   buttons: [
+          //     {
+          //       text: "Next",
+          //       action: tour.next,
+          //     },
+          //   ],
+          //   when: {
+          //     show: () => {
+          //       $("#fiter-first-tour .select-tag").on("click", function () {
+          //         $(this).closest(".cutom-select").addClass("active");
+          //         $(
+          //           ".shepherd-element.fiter-first-tour.btn-none button"
+          //         ).click();
+          //         //   zoom.to({
+          //         //     element: document.querySelector("#fiter-first-tour"),
+          //         //     padding: 180,
+          //         //   });
+          //       });
+          //     },
+          //   },
+          //   highlightClass: "highlight-layer",
+          //   modalOverlayOpeningPadding: 3,
+          // },
+          // {
+          //   arrow: false,
+          //   text: "Select the object type from the dropdown",
+          //   attachTo: {
+          //     element: "#second-filter-step",
+          //     on: "right",
+          //   },
+          //   classes: "second-step",
+          //   when: {
+          //     show: () => {
+          //       $(".shepherd-element.fiter-first-tour").remove();
+          //       $("#second-filter-step .option-main").on("click", function (e) {
+          //         e.preventDefault();
+          //         e.stopPropagation();
+          //         $(this).closest(".cutom-select").removeClass("active");
+          //         //   zoom.out();
+          //         tour.next();
+          //       });
+          //     },
+          //   },
+          //   highlightClass: "highlight-layer",
+          //   modalOverlayOpeningPadding: 3,
+          // },
+          // {
+          //   arrow: false,
+          //   text: "When you're done selecting , click 'Go' to move forward.",
+          //   attachTo: {
+          //     element: "#filter-go-btn",
+          //     on: "top",
+          //   },
+          //   classes: "filter-go-btn",
+          //   when: {
+          //     show: () => {
+          //       // $("#filter-go-btn").addClass("active-opacity");
+          //       // $("#filter-go-btn").addClass("new-highlight-layer");
 
-                $("#filter-go-btn").on("click", function () {
-                  $("#fiter-first").hide();
-                  setTimeout(() => {
-                    $(".table-wrapper-clr").show();
-                    tour.next();
-                  }, 200);
-                });
-              },
-            },
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
+          //       $("#filter-go-btn").on("click", function () {
+          //         $("#fiter-first").hide();
+          //         setTimeout(() => {
+          //           $(".table-wrapper-clr").show();
+          //           tour.next();
+          //         }, 200);
+          //       });
+          //     },
+          //   },
+          //   highlightClass: "highlight-layer",
+          //   modalOverlayOpeningPadding: 3,
+          // },
           {
             arrow: false,
             text: "Now that all the available resources have been populated based on your selection, let’s perform some actions.<br><br>To proceed, pick: <ul><li>Start VM</li>",
@@ -1357,6 +1357,14 @@
             ],
             classes: "table-tour-main",
             highlightClass: "highlight-layer",
+            when: {
+              show: ()=>{
+                setTimeout(() => {
+                    $(".table-wrapper-clr").show();
+                    tour.next();
+                  }, 200);
+              }
+            },
             modalOverlayOpeningPadding: 3,
           },
           {
