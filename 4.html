@@ -14,7 +14,7 @@
     class="main-dashboard min-h-100"
     style="overflow: hidden; height: 100vh"
   >
-  <div class="darkscale" style="display: none;"></div>
+    <div class="darkscale" style="display: none"></div>
     <div
       class="top-bar-main d-flex justify-content-between"
       style="padding: 0 25px; background: #0077b5; color: #fff"
@@ -290,7 +290,12 @@
                         title="Select Application Name the Services required For. Applications name will be listed down based on selected hosting location and data localisation regulations. For Example if the Hosting location is Europe, only applications can be hosted in Europe will be listed."
                       />
                     </p>
-                    <input type="number" id="lease-val" placeholder="99" class="type-input" >
+                    <input
+                      type="number"
+                      id="lease-val"
+                      placeholder="99"
+                      class="type-input"
+                    />
                   </div>
                   <div class="form-group" id="seventh-step">
                     <p class="label">
@@ -1155,13 +1160,21 @@
                         <td>
                           <div class="form-group">
                             <p class="label">Key:</p>
-                            <input type="text" class="type-input" id="key-text"/>
+                            <input
+                              type="text"
+                              class="type-input"
+                              id="key-text"
+                            />
                           </div>
                         </td>
                         <td>
                           <div class="form-group">
                             <p class="label">Value:</p>
-                            <input type="text" class="type-input" id="value-text"/>
+                            <input
+                              type="text"
+                              class="type-input"
+                              id="value-text"
+                            />
                           </div>
                         </td>
                         <td><img src="assets/images/log-plus.jpg" /></td>
@@ -2206,14 +2219,13 @@
             show: () => {
               $("#main-submit").on("click", function () {
                 $("#main-submit").text("Review and Confirm");
-                
-                  $("#tab-head-fourth").addClass("active");
-                  $("#tab-head-third").removeClass("active");
-                  $("#db-server").removeClass("show");
-                  $("#db-server").removeClass("active");
-                  $("#tags").addClass("active show");
-                  // tour.next();
-                
+
+                $("#tab-head-fourth").addClass("active");
+                $("#tab-head-third").removeClass("active");
+                $("#db-server").removeClass("show");
+                $("#db-server").removeClass("active");
+                $("#tags").addClass("active show");
+                // tour.next();
               });
             },
           },
@@ -2279,8 +2291,8 @@
         },
         // ........................................
         {
-        arrow: false,
-          text: "Manually enter the Database Size (Applicable for Catalogues)",
+          arrow: false,
+          text: "Manually enter the Key Value",
           attachTo: {
             element: "#key-text",
             on: "right",
@@ -2302,21 +2314,21 @@
           highlightClass: "highlight-layer",
           when: {
             show: () => {
-                $("#main-submit").text("Review and Confirm")
-                  $("#tab-head-fourth").addClass("active");
-                  $("#tab-head-third").removeClass("active");
-                  $("#db-server").removeClass("show");
-                  $("#db-server").removeClass("active");
-                  $("#tags").addClass("active show");
-                  // tour.next();
+              $("#main-submit").text("Review and Confirm");
+              $("#tab-head-fourth").addClass("active");
+              $("#tab-head-third").removeClass("active");
+              $("#db-server").removeClass("show");
+              $("#db-server").removeClass("active");
+              $("#tags").addClass("active show");
+              // tour.next();
             },
           },
           modalOverlayOpeningPadding: 2,
         },
 
         {
-        arrow: false,
-          text: "Manually enter the Database Size (Applicable for Catalogues)",
+          arrow: false,
+          text: "Manually enter the Value",
           attachTo: {
             element: "#value-text",
             on: "right",
@@ -2338,13 +2350,13 @@
           highlightClass: "highlight-layer",
           when: {
             show: () => {
-                $("#main-submit").text("Review and Confirm")
-                  $("#tab-head-fourth").addClass("active");
-                  $("#tab-head-third").removeClass("active");
-                  $("#db-server").removeClass("show");
-                  $("#db-server").removeClass("active");
-                  $("#tags").addClass("active show");
-                  // tour.next();
+              $("#main-submit").text("Review and Confirm");
+              $("#tab-head-fourth").addClass("active");
+              $("#tab-head-third").removeClass("active");
+              $("#db-server").removeClass("show");
+              $("#db-server").removeClass("active");
+              $("#tags").addClass("active show");
+              // tour.next();
             },
           },
           modalOverlayOpeningPadding: 2,
@@ -2373,16 +2385,12 @@
                   "active show"
                 );
                 $(".shepherd-element.main-submit.btn-none button").click();
-
               });
-
             },
           },
           modalOverlayOpeningPadding: 2,
         },
 
-
-        
         {
           arrow: false,
           text: "When you're done reviewing your form, hit Confirm provision",
@@ -2403,9 +2411,9 @@
               new bootstrap.Modal($("#afterSubmit"), {
                 keyboard: false,
               }).show();
+
               $("#modal-btn").addClass("highlight-layer");
               $("#modal-btn").addClass("new-highlight-layer");
-              
 
               $("#modal-btn").on("click", function () {
                 $(".shepherd-element.modal-btn.btn-none button").click();
