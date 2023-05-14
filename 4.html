@@ -1653,7 +1653,7 @@
           text: "Let's set up the web server",
           attachTo: {
             element: "#main-submit",
-            on: "top",
+            on: "right",
           },
           classes: "tab-head-first btn-none",
           buttons: [
@@ -2411,6 +2411,7 @@
               new bootstrap.Modal($("#afterSubmit"), {
                 keyboard: false,
               }).show();
+              $(".darkscale").css("display", "block");
 
               $("#modal-btn").addClass("highlight-layer");
               $("#modal-btn").addClass("new-highlight-layer");

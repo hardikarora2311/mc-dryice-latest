@@ -1759,56 +1759,17 @@
           },
           {
             arrow: false,
-            text: "The dropdown shows the actions that can be taken for the selected object<br><br>To Add additional space to your resource, scroll through the actions and select Disk Add.",
-            attachTo: {
-              element: "#table-action-drop-wrap",
-              on: "left",
-            },
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            when: {
-              show: () => {
-                $("#table-start-action").unbind("click").off("click");
-                $("#table-first-step").unbind("click").off("click");
-                $("#table-resize-server").unbind("click").off("click");
-                $("#table-resize-server").on("click", function () {
-                  return false;
-                });
-                $("#table-resize-server").removeAttr("id");
-              },
-            },
-            classes: "table-action-drop-wrap",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
-            text: "To Add additional space to your resource, scroll through the actions and select Disk Add.",
-            attachTo: {
-              element: "#table-action-drop-wrap",
-              on: "left",
-            },
-            buttons: [
-              {
-                text: "Next",
-                action: tour.next,
-              },
-            ],
-            classes: "table-action-drop-wrap",
-            highlightClass: "highlight-layer",
-            modalOverlayOpeningPadding: 3,
-          },
-          {
-            arrow: false,
             text: "To Add additional space to your resource, scroll through the actions and select Disk Add.<br<br>You'll see a popup window once you click on the Day2 action.",
             attachTo: {
-              element: "#table-disk-add",
+              element: "#table-action-drop-wrap",
               on: "left",
             },
+            // buttons: [
+            //   {
+            //     text: "Next",
+            //     action: tour.next,
+            //   },
+            // ],
             when: {
               show: () => {
                 $("#table-action-drop-wrap").animate(
@@ -1817,6 +1778,10 @@
                   },
                   2
                 );
+                $("#table-disk-add").addClass("new-highlight-layer");
+                $("#table-disk-add").addClass("new-highlight-layer-dropdown");
+                $("#table-start-action").unbind("click").off("click");
+                $("#table-first-step").unbind("click").off("click");
                 $("#table-disk-add").on("click", function (e) {
                   e.preventDefault();
                   e.stopPropagation();
@@ -1825,10 +1790,54 @@
                 });
               },
             },
-            classes: "table-resize-server",
-            highlightClass: "highlight-layer",
+            classes: "table-action-drop-wrap",
+            // highlightClass: "highlight-layer",
             modalOverlayOpeningPadding: 3,
           },
+          // {
+          //   arrow: false,
+          //   text: "To Add additional space to your resource, scroll through the actions and select Disk Add.",
+          //   attachTo: {
+          //     element: "#table-action-drop-wrap",
+          //     on: "left",
+          //   },
+          //   buttons: [
+          //     {
+          //       text: "Next",
+          //       action: tour.next,
+          //     },
+          //   ],
+          //   classes: "table-action-drop-wrap",
+          //   highlightClass: "highlight-layer",
+          //   modalOverlayOpeningPadding: 3,
+          // },
+          // {
+          //   arrow: false,
+          //   text: "To Add additional space to your resource, scroll through the actions and select Disk Add.<br<br>You'll see a popup window once you click on the Day2 action.",
+          //   attachTo: {
+          //     element: "#table-disk-add",
+          //     on: "left",
+          //   },
+          //   when: {
+          //     show: () => {
+          //       $("#table-action-drop-wrap").animate(
+          //         {
+          //           scrollTop: "-" + $("#table-action-drop-wrap").offset().top,
+          //         },
+          //         2
+          //       );
+          //       $("#table-disk-add").on("click", function (e) {
+          //         e.preventDefault();
+          //         e.stopPropagation();
+          //         modal3.show();
+          //         tour.next();
+          //       });
+          //     },
+          //   },
+          //   classes: "table-resize-server",
+          //   highlightClass: "highlight-layer",
+          //   modalOverlayOpeningPadding: 3,
+          // },
           {
             arrow: false,
             text: "Fill in the required details by selecting from the dropdown menu",

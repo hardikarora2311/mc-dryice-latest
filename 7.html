@@ -1390,7 +1390,7 @@
             arrow: false,
             text: "To start a VM, scroll through the actions and select Start VM.<br><br>You'll see a popup window once you click on the Day2 action.",
             attachTo: {
-              element: "#table-start-action",
+              element: "#table-action-drop-wrap",
               on: "left",
             },
             classes: "table-start-action",
@@ -1402,6 +1402,12 @@
                   },
                   2
                 );
+                $("#table-start-action").addClass("new-highlight-layer");
+                $("#table-start-action").addClass("new-highlight-layer-dropdown");
+
+                $("#table-start-action").unbind("click").off("click");
+                $("#table-first-step").unbind("click").off("click");
+                
                 $("#table-start-action").on("click", function (e) {
                   e.preventDefault();
                   e.stopPropagation();
@@ -1411,7 +1417,7 @@
                 });
               },
             },
-            highlightClass: "highlight-layer",
+            // highlightClass: "highlight-layer",
             modalOverlayOpeningPadding: 3,
           },
           {
