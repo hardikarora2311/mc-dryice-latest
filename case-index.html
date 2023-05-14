@@ -9,6 +9,97 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/shepherd.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .btn1 {
+        background-color: #a2d9ee;
+        color: black;
+        font-size: 1.5em;
+        font-weight: 500;
+        padding: 0.7em 1.9em;
+        border-radius: 20px;
+        border: none;
+        transition: all 0.2s ease;
+      }
+      .btn1:hover {
+        background-color: rgba(162, 216, 238, 0.5);
+      }
+
+      .use-case-wrapper {
+        width: 60%;
+        height: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-image: linear-gradient(to right, #33e6d6, #217ca8, #020634);
+        background-position: center left;
+        box-shadow: 0 0 100px 0 rgb(0 0 0 / 80%);
+
+        z-index: 1;
+      }
+      .use-case {
+        width: 360px;
+        height: max-content;
+        cursor: pointer;
+        color: black;
+        background-color: white !important;
+        margin: 1em 1em;
+        border-radius: 10px;
+        box-shadow: 0 0 15px 0 rgb(0 0 0 / 20%);
+      }
+
+      .use-case a {
+        text-decoration: none;
+      }
+
+      .use-case a:hover {
+        color: white;
+      }
+      .use-case p {
+        margin-bottom: 0.8em;
+      }
+
+      .btn-wrapper {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .usecase-btn {
+        background: #0077b5;
+        color: #fff;
+        text-decoration: none;
+        padding: 1px 30px;
+        /* display: inline-block; */
+        cursor: pointer;
+        border-style: none;
+        border-radius: 0.2em;
+        margin: 0.5em 0.5em;
+        margin-bottom: 0.6em;
+        transition: all 0.2s ease;
+      }
+      .usecase-btn:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 5px;
+        right: -5%;
+        background: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 36px;
+        color: white;
+        border: 2px solid white;
+        background: grey;
+      }
+      .close-btn:hover {
+        color: black;
+      }
+      .use-case:hover {
+        transform: none !important;
+      }
+    </style>
   </head>
   <body class="main-dashboard" style="overflow: hidden; height: 100vh">
     <div
@@ -139,21 +230,53 @@
     </div>
     <div id="main-first"></div>
     <div id="main-second"></div>
-    <div class="use-case-modal" id="use-case" style="display: none">
-      <div class="modal-dialoge">
-        <div class="modal-body">
-          <h2>Please select the use case to move forward</h2>
-          <div class="use-case-wrapper">
-            <div class="use-case">
-              <img src="assets/images/logo-mycloud.png" alt="" width="100" />
-              <p>MyCloud Use Case 1</p>
-              <a href="1.html">View</a>
-            </div>
-            <div class="use-case">
-              <img src="assets/images/logo-mycloud.png" alt="" width="100" />
-              <p>MyCloud Use Case 2</p>
-              <a href="6.html">View</a>
-            </div>
+    <div>
+      <div
+        class="use-case-wrapper visually-hidden use-case-modal position-absolute d-flex align-items-center rounded"
+      >
+        <!-- IFRAME YOUTUBE VIDEOS -->
+        <div class="position-absolute z-5 visually-hidden" id="iframeDisplay1">
+          <iframe
+            width="1000"
+            height="562"
+            src="https://www.youtube.com/embed/aOzLFbC3FCE"
+            title="1st Use Case"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="position-absolute z-5 visually-hidden" id="iframeDisplay2">
+          <iframe
+            width="1000"
+            height="562"
+            src="https://www.youtube.com/embed/NusWG1x6GBQ"
+            title="2nd Use Case"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="use-case">
+          <img src="assets/images/logo-mycloud.png" alt="" width="100" />
+          <p>Provisioning endpoint</p>
+
+          <div class="btn-wrapper">
+            <a href="login-1.html" class="usecase-btn">Click through</a>
+            <button class="usecase-btn" onclick="displayIframe1()">
+              Watch Video
+            </button>
+          </div>
+        </div>
+        <div class="use-case">
+          <img src="assets/images/logo-mycloud.png" alt="" width="100" />
+          <p>Configuiring a VM</p>
+
+          <div class="btn-wrapper">
+            <a href="login-2.html" class="usecase-btn">Click through</a>
+            <button class="usecase-btn" onclick="displayIframe2()">
+              Watch Video
+            </button>
           </div>
         </div>
       </div>
@@ -286,6 +409,32 @@
         $("#use-case").show();
       } else {
         tour.start();
+      }
+
+      function displayIframe1() {
+        var iframe = document.getElementById("iframeDisplay1");
+        iframe.classList.remove("visually-hidden");
+        var closeBtn = document.createElement("button");
+        closeBtn.innerHTML = "&#10006;"; // X symbol
+        closeBtn.classList.add("close-btn");
+        closeBtn.onclick = function () {
+          iframe.classList.add("visually-hidden");
+          this.parentNode.removeChild(this);
+        };
+        iframe.appendChild(closeBtn);
+      }
+
+      function displayIframe2() {
+        var iframe = document.getElementById("iframeDisplay2");
+        iframe.classList.remove("visually-hidden");
+        var closeBtn = document.createElement("button");
+        closeBtn.innerHTML = "&#10006;"; // X symbol
+        closeBtn.classList.add("close-btn");
+        closeBtn.onclick = function () {
+          iframe.classList.add("visually-hidden");
+          this.parentNode.removeChild(this);
+        };
+        iframe.appendChild(closeBtn);
       }
     </script>
   </body>
