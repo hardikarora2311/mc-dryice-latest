@@ -9,21 +9,26 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/shepherd.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      .btn1 {
-        background-color: #a2d9ee;
-        color: black;
-        font-size: 1.5em;
-        font-weight: 500;
-        padding: 0.7em 1.9em;
-        border-radius: 20px;
-        border: none;
-        transition: all 0.2s ease;
+      body {
+        font-family: "Montserrat", sans-serif;
       }
       .btn1:hover {
         background-color: rgba(162, 216, 238, 0.5);
       }
 
+      .wrapper {
+        top: 0;
+        left: 0;
+      }
       .use-case-wrapper {
         width: 60%;
         height: 400px;
@@ -101,7 +106,10 @@
       }
     </style>
   </head>
-  <body class="main-dashboard" style="overflow: hidden; height: 100vh">
+  <body
+    class="main-dashboard position-relative"
+    style="overflow: hidden; height: 100vh"
+  >
     <div
       class="top-bar-main d-flex justify-content-between"
       style="padding: 0 25px; background: #0077b5; color: #fff"
@@ -230,9 +238,16 @@
     </div>
     <div id="main-first"></div>
     <div id="main-second"></div>
-    <div>
+    <!-- <div class="use-case-modal" id="use-case" style="display: none">
+      <div class="modal-dialoge">
+        <div class="modal-body">
+          <h2>Please select the use case to move forward</h2> -->
+    <div
+      style="height: 100%; width: 100vw"
+      class="wrapper d-flex flex-column justify-content-center position-absolute"
+    >
       <div
-        class="use-case-wrapper visually-hidden use-case-modal position-absolute d-flex align-items-center rounded"
+        class="use-case-wrapper use-case-modal position-absolute d-flex align-items-center rounded"
       >
         <!-- IFRAME YOUTUBE VIDEOS -->
         <div class="position-absolute z-5 visually-hidden" id="iframeDisplay1">
@@ -281,6 +296,9 @@
         </div>
       </div>
     </div>
+    <!-- </div>
+      </div>
+    </div> -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/shepherd.min.js"></script>

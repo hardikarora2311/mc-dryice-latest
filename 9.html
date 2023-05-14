@@ -21,12 +21,12 @@
       }
       .popup-wrapper {
         width: 600px;
-        height: 300px;
+        height: 400px;
         text-align: center;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: #0077b5;
+        background-image: linear-gradient(to right, #9bf2e9, #a0c8fb);
         box-shadow: 0 0 50px 0 rgb(0 0 0 / 30%);
         border-radius: 10px;
         z-index: 1;
@@ -39,14 +39,14 @@
         cursor: pointer;
         color: black;
         margin: 1em 1.2em;
-        border-radius: 10px;
-        color: #0077b5;
+        border-radius: 50%;
+        color: #244b60;
         background-color: white;
         box-shadow: 0 0 15px 0 rgb(0 0 0 / 20%);
         text-decoration: none;
       }
       .popup:hover {
-        color: #0077b5;
+        color: #244b60;
         transform: scale(1.05);
         transition: all 0.2s ease-in;
       }
@@ -58,69 +58,78 @@
       .popup p {
         cursor: pointer;
       }
-      .thank-you{
-        background-image: linear-gradient(to right, #33e6d6, #217ca8, #020634);
-        background-position: center left;
+      .thank-you,
+      .start-up-wrapper {
+        background-image: linear-gradient(
+          to right,
+          #9bf2e9,
+          #a0c8fb
+        ) !important;
       }
     </style>
   </head>
   <body class="min-h-100 main-pages" style="overflow: hidden; height: 100vh">
     <!-- <div class="darkscale"></div> -->
-    <div
-      class="popup-wrapper position-absolute justify-content-center align-items-center"
-      style="display: none"
-    >
-      <a
-        id="popup1"
-        href="7.html"
-        class="popup d-flex justify-content-center align-items-center"
-      >
-        <div>
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <path
-                style="fill: #0077b5"
-                d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"
-              />
-            </svg>
-          </span>
-          <p class="m-2 p-1">START VM</p>
-        </div>
-      </a>
-      <a
-        id="popup2"
-        href="8.html"
-        class="popup d-flex justify-content-center align-items-center"
-      >
-        <div>
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <path
-                style="fill: #0077b5"
-                d="M200 32H56C42.7 32 32 42.7 32 56V200c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l40-40 79 79-79 79L73 295c-6.9-6.9-17.2-8.9-26.2-5.2S32 302.3 32 312V456c0 13.3 10.7 24 24 24H200c9.7 0 18.5-5.8 22.2-14.8s1.7-19.3-5.2-26.2l-40-40 79-79 79 79-40 40c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H456c13.3 0 24-10.7 24-24V312c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2l-40 40-79-79 79-79 40 40c6.9 6.9 17.2 8.9 26.2 5.2s14.8-12.5 14.8-22.2V56c0-13.3-10.7-24-24-24H312c-9.7 0-18.5 5.8-22.2 14.8s-1.7 19.3 5.2 26.2l40 40-79 79-79-79 40-40c6.9-6.9 8.9-17.2 5.2-26.2S209.7 32 200 32z"
-              />
-            </svg>
-          </span>
-          <p class="m-2 p-1">RESIZE SERVER</p>
-        </div>
-      </a>
-      <a
-        href="9.html"
-        id="popup3"
-        class="popup d-flex justify-content-center align-items-center"
-      >
-        <div>
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <path
-                style="fill: #0077b5"
-                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"
-              />
-            </svg>
-          </span>
-          <p class="m-2 p-1">ADD DISK</p>
-        </div>
-      </a>
+    <div class="popup-wrapper position-absolute visually-hidden py-4">
+      <p class="p-2">
+        Now that all the available resources have been populated based on your
+        selection, let’s perform some actions.
+      </p>
+      <p class="p-2">To proceed, pick one:</p>
+      <div class="d-flex justify-content-center align-items-center">
+        <a
+          id="popup1"
+          href="7.html"
+          class="popup d-flex justify-content-center align-items-center"
+        >
+          <div>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  style="fill: #0077b5"
+                  d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"
+                />
+              </svg>
+            </span>
+            <p class="m-2 p-1">START VM</p>
+          </div>
+        </a>
+        <a
+          href="8.html"
+          id="popup2"
+          class="popup d-flex justify-content-center align-items-center"
+        >
+          <div>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  style="fill: #0077b5"
+                  d="M200 32H56C42.7 32 32 42.7 32 56V200c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l40-40 79 79-79 79L73 295c-6.9-6.9-17.2-8.9-26.2-5.2S32 302.3 32 312V456c0 13.3 10.7 24 24 24H200c9.7 0 18.5-5.8 22.2-14.8s1.7-19.3-5.2-26.2l-40-40 79-79 79 79-40 40c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H456c13.3 0 24-10.7 24-24V312c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2l-40 40-79-79 79-79 40 40c6.9 6.9 17.2 8.9 26.2 5.2s14.8-12.5 14.8-22.2V56c0-13.3-10.7-24-24-24H312c-9.7 0-18.5 5.8-22.2 14.8s-1.7 19.3 5.2 26.2l40 40-79 79-79-79 40-40c6.9-6.9 8.9-17.2 5.2-26.2S209.7 32 200 32z"
+                />
+              </svg>
+            </span>
+            <p class="m-2 p-1">RESIZE SERVER</p>
+          </div>
+        </a>
+        <a
+          href="9.html"
+          id="popup3"
+          class="popup d-flex justify-content-center align-items-center"
+        >
+          <div>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  style="fill: #0077b5"
+                  d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"
+                />
+              </svg>
+            </span>
+            <p class="m-2 p-1">ADD DISK</p>
+          </div>
+        </a>
+      </div>
+      <a href="/">HOMEPAGE</a>
     </div>
     <div
       class="top-bar-main d-flex justify-content-between"
@@ -1134,13 +1143,15 @@
           <p><a href="https://www.dryice.ai">www.dryice.ai</a></p>
         </div>
         <div class="start-up-btn">
-          <a
-          href="index.html"
-
-            class="btn btn-pill-primary highlight-layer"
+          <a href="index.html" class="btn btn-pill-primary highlight-layer"
             >Start Over</a
           >
         </div>
+        <footer class="flex text-center bottom-0">
+          <p>
+            Copyright Ⓒ 2023 HCL Software Limited
+          </p>
+        </footer>
       </div>
     </div>
     <script src="assets/js/zoom.js"></script>
@@ -2041,7 +2052,8 @@
             },
             when: {
               show: () => {
-                $(".popup-wrapper").addClass(" d-flex ");
+                $(".shepherd-content").css("display", "none");
+                $(".popup-wrapper").removeClass("visually-hidden");
                 $("#filter-go-btn").removeClass("new-highlight-layer");
 
                 $(".popup-wrapper").addClass(" new-highlight-layer ");
@@ -2049,19 +2061,19 @@
 
                 if (localStorage.popup1) {
                   $("#popup1").addClass("greyscale");
-                  $("#popup1 path").css("filter","grayscale(1)");
+                  $("#popup1 path").css("filter", "grayscale(1)");
 
                   console.log("pppp");
                 }
                 if (localStorage.popup2) {
                   $("#popup2").addClass("greyscale");
-                  $("#popup2 path").css("filter","grayscale(1)");
+                  $("#popup2 path").css("filter", "grayscale(1)");
 
                   console.log("pppp");
                 }
                 if (localStorage.popup3) {
                   $("#popup3").addClass("greyscale");
-                  $("#popup3 path").css("filter","grayscale(1)");
+                  $("#popup3 path").css("filter", "grayscale(1)");
                   console.log("pppp");
                 }
                 if (
