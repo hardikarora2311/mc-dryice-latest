@@ -1922,7 +1922,7 @@ div#modaltour-4 .modal-dialog {
 }
 
 .use-case-wrapper .use-case img {
-  width: 60px;
+  width: 150px;
   margin-bottom: 10px;
 }
 
@@ -2058,23 +2058,28 @@ div#modaltour-4 .modal-dialog {
   animation: pulse 2s infinite;
 }
 
-.new-highlight-layer-dropdown{
+.new-highlight-layer-dropdown {
   /* background-color: grey; */
   color: white !important;
   border: 3px solid #0077b5 !important;
-
 }
 
 .new-highlight-layer-dropdown:after {
-	content: '';
-	display: block;
-	margin: auto;
-	height: 2px;
-	animation: underline 1.2s infinite;
+  content: "";
+  display: block;
+  margin: auto;
+  height: 2px;
+  animation: underline 1.2s infinite;
 }
 @keyframes underline {
-  0% { width: 0%; background-color: red;}
-  100% {width: 100%; background-color: transparent;}
+  0% {
+    width: 0%;
+    background-color: red;
+  }
+  100% {
+    width: 100%;
+    background-color: transparent;
+  }
 }
 
 .new-highlight-layer-noborder {
@@ -2118,6 +2123,19 @@ div#modaltour-4 .modal-dialog {
 
 .option .option-main {
   margin: 0.5em 0;
+}
+
+.popup-wrapper {
+  height: 350px !important;
+  background-image: url("https://www.dryice.ai/sites/default/files/styles/banner/public/Resources-Banner/images/2020-08/MyCloud-landingpage-banners_3.jpg?itok=Zwz79y8F") !important;
+  background-size: contain;
+  background-color: #cfcfcf;
+  backdrop-filter: opacity(0.2);
+  background-blend-mode: multiply;
+}
+
+.popup-wrapper .popup{
+  box-shadow: 0 0 15px 0 rgb(0 0 0 / 40%) !important;
 }
 
 /* .............................................. */
