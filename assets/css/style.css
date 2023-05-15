@@ -2147,12 +2147,12 @@ div#modaltour-4 .modal-dialog {
   right: 0;
   bottom: 0;
   z-index: 2000;
-  /* background-color: rgba(0, 0, 0, 0.75); */
+  background-color: black;
 }
 #prelaoder video {
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
+  object-fit: contain;
 }
 body.loaded #prelaoder {
   display: none;
