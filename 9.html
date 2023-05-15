@@ -1800,6 +1800,8 @@
                 $("#table-disk-add").on("click", function (e) {
                   e.preventDefault();
                   e.stopPropagation();
+                  $(this).closest(".action-wrapper").removeClass("active");
+
                   modal3.show();
                   tour.next();
                 });
@@ -2030,6 +2032,8 @@
             when: {
               show: () => {
                 $("#modaltour3btn").on("click", function () {
+                  modal3.hide();
+
                   $(this)
                     .closest(".modal-body")
                     .find(".modal-pop-up-wrapper")
@@ -2058,6 +2062,10 @@
 
                 $(".popup-wrapper").addClass(" new-highlight-layer ");
                 $(".popup-wrapper").addClass("active-opacity");
+                $(".table-wrapper-clr").show();
+
+               
+                // $("#modal-disable").css("display", "none");
 
                 if (localStorage.popup1) {
                   $("#popup1").addClass("greyscale");

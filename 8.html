@@ -1563,6 +1563,7 @@
                 $("#table-resize-server").on("click", function (e) {
                   e.preventDefault();
                   e.stopPropagation();
+                  $(this).closest(".action-wrapper").removeClass("active");
                   modal2.show();
                   tour.next();
                 });
@@ -1770,6 +1771,7 @@
 
                 $(".popup-wrapper").addClass(" new-highlight-layer ");
                 $(".popup-wrapper").addClass("active-opacity");
+                $(".table-wrapper-clr").show();
 
                 if (localStorage.popup1) {
                   $("#popup1").addClass("greyscale");
@@ -1801,6 +1803,7 @@
                   localStorage.removeItem("popup2");
                   localStorage.removeItem("popup3");
                 }
+                
               },
             },
             classes: "table-tour-main",
