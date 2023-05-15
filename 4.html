@@ -1380,6 +1380,7 @@
       var myFunction = function (target) {
         $("#year-selection").html("Year(s)");
         $("#lease-val").val(99);
+        $("#lease-val").prop('disabled', true);
         x = true;
       };
       jQuery("body").keydown(function (e) {
@@ -1587,7 +1588,7 @@
         },
         {
           arrow: false,
-          text: "Manually enter the Lease Period Value",
+          text: "Manually enter the Lease Period Value,  if the server environment is set for Production, it is disabled and set for 99 years",
           attachTo: {
             element: "#lease-val",
             on: "left",
