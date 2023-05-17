@@ -56,8 +56,8 @@
       }
 
       .use-case-wrapper {
-        width: 60%;
-        height: 400px;
+        width: 70%;
+        height: 75%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -69,8 +69,6 @@
         background: url(https://www.hcltechsw.com/wps/wcm/connect/755a8ad8-f9f9-493a-a75e-790337951ae3/awards-and-recognitions.png?MOD=AJPERES)
           no-repeat !important;
         background-size: cover !important;
-
-       
       }
       .use-case {
         width: 360px;
@@ -139,12 +137,12 @@
   </head>
 
   <body class="text-light">
-    <div id="prelaoder">
+    <!-- <div id="prelaoder">
       <video autoplay muted>
         <source src="assets/preloader.mp4" type="video/mp4" />
         Your browser does not support html video
       </video>
-    </div>
+    </div> -->
     <div
       style="height: 100%"
       class="wrapper d-flex flex-column justify-content-center position-relative"
@@ -204,12 +202,13 @@
         <div class="m-2 p-2">
           <img src="/assets/images/Logo DRYiCE white.png" alt="logo" />
           <h1 class="h1 mt-5">
-            THE AI FOUNDATION FOR <br />
-            THE DIGITAL ENTERPRISE
+            Hybrid Cloud lifecycle <br />
+            management product
           </h1>
-          <p class="header mt-3">
-            Transforming and simplifying IT and <br />Business operations by
-            leveraging AI and Cloud
+          <p class="header mt-3 lh-sm">
+            DRYiCE MyCloud is a hybrid-cloud lifecycle <br />
+            management product that offers optimal governance <br />
+            and monitoring of your cloud infrastructure.
           </p>
           <div class="d-flex gap-4">
             <button class="btn1 my-5" onclick="toggle()">
@@ -238,14 +237,16 @@
       var wrapper = document.querySelector(".darkspace");
 
       function toggle() {
-        if (element.classList.contains("visually-hidden")) {
-          element.classList.remove("visually-hidden");
-          Object.assign(myElement.style, {
-            backgroundColor: rgba(0, 0, 0, 0.4),
-          });
-        } else {
-          element.classList.add("visually-hidden");
-        }
+        var popup = document.querySelector(".use-case-wrapper");
+        popup.classList.remove("visually-hidden");
+        var closeBtn = document.createElement("button");
+        closeBtn.innerHTML = "&#10006;"; // X symbol
+        closeBtn.classList.add("close-btn");
+        closeBtn.onclick = function () {
+          popup.classList.add("visually-hidden");
+          this.parentNode.removeChild(this);
+        };
+        popup.appendChild(closeBtn);
       }
 
       function displayIframe1() {
