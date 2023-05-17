@@ -1420,6 +1420,7 @@
       });
       tour.addSteps([
         {
+          id:"1",
           arrow: false,
           text: "Let’s fill out the form and hover your mouse over the info icon to see a description of the field.",
           attachTo: {
@@ -1452,6 +1453,7 @@
           modalOverlayOpeningPadding: 4,
         },
         {
+          id:"2",
           arrow: false,
           text: "To select an application, click the dropdown menu",
           attachTo: {
@@ -1476,6 +1478,7 @@
           modalOverlayOpeningPadding: 3,
         },
         {
+          id:"3",
           arrow: false,
           text: "To select an application, click the dropdown menu item",
           attachTo: {
@@ -1504,31 +1507,35 @@
           },
           modalOverlayOpeningPadding: 2,
         },
+       
         {
+          id:"4",
           arrow: false,
           text: "Select an environment by clicking the dropdown.",
           attachTo: {
             element: "#fifth-step",
             on: "right",
           },
-          classes: "fourth-step btn-none",
+          classes: "fourth-step",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              action: tour.back,
             },
           ],
           highlightClass: "highlight-layer",
           when: {
             show: () => {
               $("#fifth-step").on("click", function () {
-                $(".shepherd-element.fourth-step.btn-none button").click();
+                tour.next();
+                // $(".shepherd-element.fourth-step.btn-none button").click();
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"5",
           arrow: false,
           text: "Select an environment by clicking the dropdown item",
           attachTo: {
@@ -1536,28 +1543,29 @@
             on: "right",
           },
           classes: "fifth-step btn-none",
-          buttons: [
-            {
-              text: "Next",
-              action: tour.next,
-            },
-          ],
+          // buttons: [
+          //   {
+          //     text: "Next",
+          //     action: tour.next,
+          //   },
+          // ],
           highlightClass: "highlight-layer",
           when: {
             show: () => {
               $(".shepherd-element.fourth-step").remove();
               $("#fifth-step").addClass("active");
               $("#fifth-step .option-main").on("click", function (e) {
+                // tour.next();
                 if ($(this).hasClass("option-main")) {
                   $("#fifth-step").removeClass("active");
-                  $(".shepherd-element.fifth-step.btn-none button").click();
+                  // $(".shepherd-element.fifth-step.btn-none button").click();
                 }
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
-        {
+        {id:"6",
           arrow: false,
           text: "By clicking the dropdown, you can choose days, weeks, months, or years as the lease period, if the server environment is set for Production, it is disabled and set for 99 years",
           attachTo: {
@@ -1566,10 +1574,16 @@
           },
           classes: "sixth-step",
           buttons: [
+          {
+              text: "Previous",
+              classes: "previous",
+              action: tour.back,
+            },
             {
               text: "Next",
               action: tour.next,
             },
+            
           ],
           highlightClass: "highlight-layer",
           when: {
@@ -1579,14 +1593,53 @@
                 $("#sixth-step").removeClass("active");
               }
               $("#sixth-step .option-main").on("click", function () {
+                // tour.next();
                 $("#sixth-step").removeClass("active");
-                $(".shepherd-element.sixth-step.btn-none button").click();
+                // $(".shepherd-element.sixth-step.btn-none button").click();
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"7",
+          arrow: false,
+          text: "By clicking the dropdown, you can choose days, weeks, months, or years as the lease period, if the server environment is set for Production, it is disabled and set for 99 years",
+          attachTo: {
+            element: "#sixth-step",
+            on: "right",
+          },
+          classes: "sixth-step",
+          buttons: [
+          {
+              text: "Previous",
+              classes: "previous",
+              action: tour.back,
+            },
+            {
+              text: "Next",
+              action: tour.next,
+            },
+            
+          ],
+          highlightClass: "highlight-layer",
+          when: {
+            show: () => {
+              $("#sixth-step").addClass("active");
+              if (x == true) {
+                $("#sixth-step").removeClass("active");
+              }
+              $("#sixth-step .option-main").on("click", function () {
+                // tour.next();
+                $("#sixth-step").removeClass("active");
+                // $(".shepherd-element.sixth-step.btn-none button").click();
+              });
+            },
+          },
+          modalOverlayOpeningPadding: 2,
+        },
+        {
+          id:"8",
           arrow: false,
           text: "Manually enter the Lease Period Value,  if the server environment is set for Production, it is disabled and set for 99 years",
           attachTo: {
@@ -1595,6 +1648,11 @@
           },
           classes: "drive-size-db",
           buttons: [
+          {
+              text: "Previous",
+              classes: "previous",
+              action: tour.back,
+            },
             {
               text: "Next",
               action: () => {
@@ -1606,23 +1664,31 @@
                 }
               },
             },
+            
           ],
           highlightClass: "highlight-layer",
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"9",
           arrow: false,
+          id: "step3",
           text: "Choose a service plan that suits your needs. Each of these service plans can be completely customized by your admin.",
           attachTo: {
             element: "#seventh-step",
             on: "right",
           },
-          classes: "seventh-step btn-none",
+          classes: "seventh-step",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              classes: "previous",
+              action: tour.back,
             },
+            {
+              text: "Next",
+              action: tour.next
+            }
           ],
           highlightClass: "highlight-layer",
           when: {
@@ -1631,10 +1697,11 @@
               $("#seventh-step #seventh-step-inner .option-main").on(
                 "click",
                 function () {
+                  // tour.next();
                   $("#seventh-step , #seventh-step-inner").removeClass(
                     "active"
                   );
-                  $(".shepherd-element.seventh-step.btn-none button").click();
+                  // $(".shepherd-element.seventh-step.btn-none button").click();
                 }
               );
             },
@@ -1642,6 +1709,7 @@
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"10",
           arrow: false,
           text: "Let's set up the web server",
           attachTo: {
@@ -1700,8 +1768,45 @@
           },
           modalOverlayOpeningPadding: 2,
         },
+        // {
+        //   arrow: false,
+        //   text: "You can also also go back to the previous tab by clicking 'Previous' button.",
+        //   attachTo: {
+        //     element: "#previous-btn",
+        //     on: "right",
+        //   },
+        //   classes: "tab-head-first btn-none",
+        //   buttons: [
+        //     {
+        //       text: "Next",
+        //       action: tour.next,
+        //     },
+        //   ],
+        //   highlightClass: "highlight-layer",
+        //   when: {
+        //     show: () => {
+        //       $("#previous-btn").on("click", function () {
+        //         // window.location.hash = "#web-server";
+
+        //         setTimeout(function () {
+        //           $("#tab-head-first").removeClass("active");
+        //           $("#general-btn").addClass("active");
+        //           $("#general").addClass("active show");
+
+        //           $("#web-server").removeClass("active show");
+        //           return tour.show('step3')
+
+
+        //           // tour.next();
+        //         }, 200);
+        //       });
+        //     },
+        //   },
+        //   modalOverlayOpeningPadding: 2,
+        // },
         {
           arrow: false,
+          id:"12",
           text: "To select an Instance family, click the dropdown menu item",
           attachTo: {
             element: "#instance-family-main",
@@ -1711,7 +1816,9 @@
           buttons: [
             {
               text: "Next",
-              action: tour.next,
+              action: ()=>{
+                return tour.show('13');
+              }
             },
           ],
           highlightClass: "highlight-layer",
@@ -1733,6 +1840,7 @@
         },
         {
           arrow: false,
+          id:"13",
           text: "For your instance, select the desired t-shirt size.",
           attachTo: {
             element: "#instance-size-main",
@@ -1741,8 +1849,10 @@
           classes: "instance-size-main btn-none",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              action: ()=>{
+                return tour.show('12')
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -1751,15 +1861,14 @@
               $("#instance-size-main ").addClass("active");
               $("#instance-size-main .option-main").on("click", function () {
                 $("#instance-size-main").removeClass("active");
-                $(
-                  ".shepherd-element.instance-size-main.btn-none button"
-                ).click();
+                tour.next();
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"14",
           arrow: false,
           text: "Click on the dropdown menu to select the resource group",
           attachTo: {
@@ -1769,8 +1878,10 @@
           classes: "resource-group btn-none",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              action: ()=>{
+                return tour.show('13');
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -1779,13 +1890,14 @@
               $("#resource-group").addClass("active");
               $("#resource-group .option-main").on("click", function () {
                 $("#resource-group").removeClass("active");
-                $(".shepherd-element.resource-group.btn-none button").click();
+                return tour.show("15");
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"15",
           arrow: false,
           text: "Click on the dropdown menu to select the VirtualNetwork",
           attachTo: {
@@ -1795,8 +1907,8 @@
           classes: "virtual-network btn-none",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              action: tour.back,
             },
           ],
           highlightClass: "highlight-layer",
@@ -1805,24 +1917,31 @@
               $("#virtual-network").addClass("active");
               $("#virtual-network .option-main").on("click", function () {
                 $("#virtual-network").removeClass("active");
-                $(".shepherd-element.virtual-network.btn-none button").click();
+                // tour.next();
+                return tour.show("16");
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"16",
           arrow: false,
           text: "Click on the dropdown menu to select the subnet",
           attachTo: {
             element: "#subnets",
             on: "right",
           },
-          classes: "subnets btn-none",
+          classes: "subnets",
           buttons: [
             {
+              text:"Previous",
+              classes:"previous",
+              action: tour.back,
+            },
+            {
               text: "Next",
-              action: tour.next,
+              action: tour.next
             },
           ],
           highlightClass: "highlight-layer",
@@ -1831,7 +1950,7 @@
               $("#subnets").addClass("active");
               $("#subnets .option-main").on("click", function () {
                 $("#subnets").removeClass("active");
-                $(".shepherd-element.subnets.btn-none button").click();
+                // tour.next();
               });
             },
           },

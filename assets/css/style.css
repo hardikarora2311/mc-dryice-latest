@@ -2154,6 +2154,15 @@ div#modaltour-4 .modal-dialog {
   box-shadow: 0 0 15px 0 rgb(0 0 0 / 40%) !important;
 }
 
+
+.thank-dec{
+  margin-top: 1.5em;
+}
+
+.thank-dec span{
+  color: gray;
+}
+
 /* .............................................. */
 
 

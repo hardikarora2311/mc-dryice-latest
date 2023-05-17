@@ -75,7 +75,7 @@
           style="width: 186px; height: 184.09px"
         >
           <p class="mb-0">Microsoft Azure</p>
-          <img src="https://dryice-mycloud.netlify.app/assets/images/microsoft.png" />
+          <img src="assets/images/microsoft.png" />
         </div>
         <div class="company-card">
           <p class="mb-0">Google Cloud Platform</p>
@@ -173,7 +173,11 @@
         ],
         modalOverlayOpeningPadding: 0,
       });
-      tour.start();
+
+      setTimeout(()=>{
+        tour.start();
+      }, 350);
+      
     </script>
   </body>
 </html>
