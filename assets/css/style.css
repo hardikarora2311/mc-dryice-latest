@@ -2143,11 +2143,14 @@ div#modaltour-4 .modal-dialog {
 
 .popup-wrapper {
   height: 350px !important;
-  background-image: url("https://www.dryice.ai/sites/default/files/styles/banner/public/Resources-Banner/images/2020-08/MyCloud-landingpage-banners_3.jpg?itok=Zwz79y8F") !important;
-  background-size: contain;
-  background-color: #cfcfcf;
-  backdrop-filter: opacity(0.2);
-  background-blend-mode: multiply;
+}
+
+.popup-wrapper p{
+  color: white;
+}
+
+.popup p{
+  color: #244b60;;
 }
 
 .popup-wrapper .popup {
