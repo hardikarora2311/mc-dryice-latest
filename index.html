@@ -243,12 +243,11 @@
         setTimeout(() => {
           document.addEventListener("click", function (event) {
             const isClosest = event.target.closest(".use-case-wrapper");
-            var frame1= document.querySelector("#iframeDisplay1");
-            var frame2= document.querySelector("#iframeDisplay2");
-
+            var frame1 = document.querySelector("#iframeDisplay1");
+            var frame2 = document.querySelector("#iframeDisplay2");
 
             if (!x) {
-              if (!isClosest && !popup.classList.contains("visually-hidden") ) {
+              if (!isClosest && !popup.classList.contains("visually-hidden")) {
                 popup.classList.add("visually-hidden");
                 x = true;
               }
