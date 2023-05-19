@@ -1812,7 +1812,7 @@
             element: "#instance-family-main",
             on: "right",
           },
-          classes: "instance-family-main btn-none",
+          classes: "instance-family-main ",
           buttons: [
             {
               text: "Next",
@@ -1846,12 +1846,12 @@
             element: "#instance-size-main",
             on: "right",
           },
-          classes: "instance-size-main btn-none",
+          classes: "instance-size-main",
           buttons: [
             {
               text: "Previous",
               action: ()=>{
-                return tour.show('12')
+                return tour.show('12');
               },
             },
           ],
@@ -1861,7 +1861,8 @@
               $("#instance-size-main ").addClass("active");
               $("#instance-size-main .option-main").on("click", function () {
                 $("#instance-size-main").removeClass("active");
-                tour.next();
+                // tour.next();
+                return tour.show('14');
               });
             },
           },
@@ -1875,7 +1876,7 @@
             element: "#resource-group",
             on: "right",
           },
-          classes: "resource-group btn-none",
+          classes: "resource-group",
           buttons: [
             {
               text: "Previous",
@@ -1904,11 +1905,13 @@
             element: "#virtual-network",
             on: "right",
           },
-          classes: "virtual-network btn-none",
+          classes: "virtual-network",
           buttons: [
             {
               text: "Previous",
-              action: tour.back,
+              action: ()=>{
+                return tour.show('14');
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -1988,6 +1991,7 @@
           modalOverlayOpeningPadding: 2,
         },
         {
+          
           arrow: false,
           text: "To select an Instance family, click the dropdown menu.",
           attachTo: {
@@ -2012,13 +2016,22 @@
           modalOverlayOpeningPadding: 2,
         },
         {
+          id: "17",
           arrow: false,
-          text: "To select an 'Instance family', click the dropdown menu.",
+          text: "To select an 'Instance family', click the dropdown menu item.",
           attachTo: {
             element: "#instance-family-main-app",
             on: "right",
           },
-          classes: "instance-family-main-app btn-none",
+          classes: "instance-family-main-app",
+          buttons: [
+            {
+              text: "Next",
+              action: ()=>{
+                return tour.show('18');
+              },
+            },
+          ],
           highlightClass: "highlight-layer",
           when: {
             show: () => {
@@ -2027,7 +2040,7 @@
                 "click",
                 function (e) {
                   $("#instance-family-main-app").removeClass("active");
-                  tour.next();
+                  // tour.next();
                 }
               );
             },
@@ -2035,17 +2048,27 @@
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"18",
           arrow: false,
           text: "For your instance, select the desired 'T-shirt size'.",
           attachTo: {
             element: "#instance-size-main-app",
             on: "right",
           },
-          classes: "instance-size-main-app btn-none",
+          classes: "instance-size-main-app ",
           buttons: [
             {
+              text: "Previous",
+              classes:"previous",
+              action: ()=>{
+                return tour.show('17');
+              },
+            },
+            {
               text: "Next",
-              action: tour.next,
+              action: ()=>{
+                return tour.show('19');
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -2056,9 +2079,12 @@
                 "click",
                 function () {
                   $("#instance-size-main-app").removeClass("active");
-                  $(
-                    ".shepherd-element.instance-size-main-app.btn-none button"
-                  ).click();
+                  // $(
+                  //   ".shepherd-element.instance-size-main-app.btn-none button"
+                  // ).click();
+                // return tour.show('19');
+
+
                 }
               );
             },
@@ -2066,6 +2092,7 @@
           modalOverlayOpeningPadding: 2,
         },
         {
+          id:"19",
           arrow: false,
           text: "Let's set up the DB server now",
           attachTo: {
@@ -2148,17 +2175,20 @@
         // ................................................
 
         {
+          id: "20",
           arrow: false,
-          text: "To select an 'Instance family', click the dropdown menu.",
+          text: "To select an 'Instance family', click the dropdown menu item.",
           attachTo: {
             element: "#instance-family-main-db",
             on: "right",
           },
-          classes: "instance-family-main-db btn-none",
+          classes: "instance-family-main-db",
           buttons: [
             {
               text: "Next",
-              action: tour.next,
+              action: ()=>{
+                return tour.show('21');
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -2169,9 +2199,9 @@
                 "click",
                 function () {
                   $("#instance-family-main-db").removeClass("active");
-                  $(
-                    ".shepherd-element.instance-family-main-db.btn-none button"
-                  ).click();
+                  // $(
+                  //   ".shepherd-element.instance-family-main-db.btn-none button"
+                  // ).click();
                 }
               );
             },
@@ -2179,17 +2209,20 @@
           modalOverlayOpeningPadding: 2,
         },
         {
+          id: "21",
           arrow: false,
           text: "For your instance, select the desired 'T-shirt size'.",
           attachTo: {
             element: "#instance-size-main-db",
             on: "right",
           },
-          classes: "instance-size-main-db btn-none",
+          classes: "instance-size-main-db ",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              action: ()=>{
+                return tour.show('20');
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -2198,26 +2231,31 @@
               $("#instance-size-main-db").addClass("active");
               $("#instance-size-main-db .option-main").on("click", function () {
                 $("#instance-size-main-db").removeClass("active");
-                $(
-                  ".shepherd-element.instance-size-main-db.btn-none button"
-                ).click();
+                // $(
+                //   ".shepherd-element.instance-size-main-db.btn-none button"
+                // ).click();
+                return tour.show('22');
+
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id: '22',
           arrow: false,
           text: "Click on the dropdown menu to select the 'Resource Group'.",
           attachTo: {
             element: "#resource-group-db",
             on: "right",
           },
-          classes: "resource-group-db btn-none",
+          classes: "resource-group-db",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              action: ()=>{
+                return tour.show('21');
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -2226,26 +2264,31 @@
               $("#resource-group-db").addClass("active");
               $("#resource-group-db .option-main").on("click", function () {
                 $("#resource-group-db").removeClass("active");
-                $(
-                  ".shepherd-element.resource-group-db.btn-none button"
-                ).click();
+                // $(
+                //   ".shepherd-element.resource-group-db.btn-none button"
+                // ).click();
+                return tour.show('23');
+
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id: "23",
           arrow: false,
           text: "Click on the dropdown menu to select the 'VirtualNetwork'.",
           attachTo: {
             element: "#virtual-network-db",
             on: "right",
           },
-          classes: "virtual-network-db btn-none",
+          classes: "virtual-network-db",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              action: ()=>{
+                return tour.show('22');
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -2254,26 +2297,31 @@
               $("#virtual-network-db").addClass("active");
               $("#virtual-network-db .option-main").on("click", function () {
                 $("#virtual-network-db").removeClass("active");
-                $(
-                  ".shepherd-element.virtual-network-db.btn-none button"
-                ).click();
+                // $(
+                //   ".shepherd-element.virtual-network-db.btn-none button"
+                // ).click();
+                return tour.show('24');
+
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id: "24",
           arrow: false,
           text: "Click on the dropdown menu to select the 'Subnet'.",
           attachTo: {
             element: "#subnets-db",
             on: "right",
           },
-          classes: "subnets-db btn-none",
+          classes: "subnets-db",
           buttons: [
             {
-              text: "Next",
-              action: tour.next,
+              text: "Previous",
+              action: ()=>{
+                return tour.show('23');
+              },
             },
           ],
           highlightClass: "highlight-layer",
@@ -2282,13 +2330,16 @@
               $("#subnets-db").addClass("active");
               $("#subnets-db .option-main").on("click", function () {
                 $("#subnets-db").removeClass("active");
-                $(".shepherd-element.subnets-db.btn-none button").click();
+                // $(".shepherd-element.subnets-db.btn-none button").click();
+                return tour.show('25');
+
               });
             },
           },
           modalOverlayOpeningPadding: 2,
         },
         {
+          id: "25",
           arrow: false,
           text: "Manually enter the Database Size (Applicable for Catalogues). ",
           attachTo: {
@@ -2298,11 +2349,19 @@
           classes: "drive-size-db",
           buttons: [
             {
+              text: "Previous",
+              classes: "previous",
+              action: ()=>{
+                return tour.show('24');
+              },
+            },
+            {
               text: "Next",
               action: () => {
                 if ($("#drive-size").val().length > 0) {
                   $("#drive-size").removeClass("error");
-                  tour.next();
+                  return tour.show('26');
+
                 } else {
                   $("#drive-size").addClass("error");
                 }
@@ -2313,6 +2372,7 @@
           modalOverlayOpeningPadding: 2,
         },
         {
+          id: "26",
           arrow: false,
           text: "Let's configure the 'Tags' now.",
           attachTo: {
@@ -2403,6 +2463,7 @@
         },
         // ........................................
         {
+          id: "27",
           arrow: false,
           text: "Manually enter the Key Value.",
           attachTo: {
@@ -2439,6 +2500,7 @@
         },
 
         {
+          id: "28",
           arrow: false,
           text: "Manually enter the Value.",
           attachTo: {
@@ -2448,11 +2510,18 @@
           classes: "drive-size-db",
           buttons: [
             {
+              text: "Previous",
+              classes:"previous",
+              action: ()=>{
+                return tour.show('27');
+              },
+            },
+            {
               text: "Next",
               action: () => {
                 if ($("#value-text").val().length > 0) {
                   $("#value-text").removeClass("error");
-                  tour.next();
+                  return tour.show('29');
                 } else {
                   $("#value-text").addClass("error");
                 }
@@ -2475,6 +2544,7 @@
         },
 
         {
+          id: "29",
           arrow: false,
           text: "Let's move forward now that you've filled out the form by clicking 'Review and Confirm'.",
           attachTo: {
