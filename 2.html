@@ -96,7 +96,6 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/shepherd.min.js"></script>
     <script>
-      
       jQuery("body").keydown(function (e) {
         if (
           e.keyCode == 27 ||
@@ -173,11 +172,9 @@
         ],
         modalOverlayOpeningPadding: 0,
       });
-
-      setTimeout(()=>{
+      $(window).on("load", function () {
         tour.start();
-      }, 500);
-      
+      });
     </script>
   </body>
 </html>
