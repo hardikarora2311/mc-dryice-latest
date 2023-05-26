@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="assets/css/shepherd.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/reset.css" />
+    <style>
+      .shepherd-content {
+        padding: 0.5em 0.4em !important;
+      }
+      .shepherd-element,
+      .shepherd-element *,
+      .shepherd-element :after,
+      .shepherd-element :before {
+        box-sizing: border-box;
+        /* width: fit-content; */
+      }
+    </style>
   </head>
   <body
     class="main-dashboard min-h-100"
@@ -91,8 +103,18 @@
                       >
                         DryiceMyCloudAzureRM
                       </div>
-                      <div class="option option-main" onclick="myFunction(this)">MyCldAzureRMBilling1</div>
-                      <div class="option option-main" onclick="myFunction(this)">AzureAdvisory</div>
+                      <div
+                        class="option option-main"
+                        onclick="myFunction(this)"
+                      >
+                        MyCldAzureRMBilling1
+                      </div>
+                      <div
+                        class="option option-main"
+                        onclick="myFunction(this)"
+                      >
+                        AzureAdvisory
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -276,7 +298,7 @@
                 $(".cutom-select").removeClass("active");
                 $(".no-data-td .no-data").hide();
                 $(".no-data-td .catalog-card-list").show();
-            
+
                 tour.next();
               });
             },
@@ -298,7 +320,18 @@
             },
             {
               text: "Next",
-              action: tour.next,
+              action: () => {
+                tour.next();
+                // $(".darkscale").css("display", "none")
+                // zoom.to({
+                //   element: document.querySelector("#focus-card"),
+                //   padding: 100,
+                // });
+
+                // setTimeout(() => {
+                //   tour.next();
+                // }, 1500);
+              },
             },
           ],
           modalOverlayOpeningPadding: 2,
@@ -315,13 +348,11 @@
             show: () => {
               zoom.to({
                 element: document.querySelector("#focus-card"),
-                padding: 80,
+                padding: 100,
               });
+
               $("#focus-card .card-footer a.btn").addClass("focus-button");
               $(".darkscale").css("display", "none");
-
-
-
             },
           },
           classes: "third-step btn-none",
