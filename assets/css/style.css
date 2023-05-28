@@ -684,6 +684,10 @@ table.catalog-table span.type-search-btn img {
 .cutom-select.active .select-option-list {
   display: block;
 }
+
+.cutom-select.no-active .select-option-list {
+  display: none !important;
+}
 .catalog-card-list {
   padding: 0 16px;
   display: grid;
