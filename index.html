@@ -136,12 +136,12 @@
   </head>
 
   <body class="text-light">
-    <div id="prelaoder">
+    <!-- <div id="prelaoder">
       <video autoplay muted>
         <source src="assets/preloader.mp4" type="video/mp4" />
         Your browser does not support html video
       </video>
-    </div>
+    </div> -->
     <div
       style="height: 100%"
       class="wrapper d-flex flex-column position-relative"
@@ -152,6 +152,7 @@
         <!-- IFRAME YOUTUBE VIDEOS -->
         <div class="position-absolute z-5 visually-hidden" id="iframeDisplay1">
           <iframe
+            class="iframe1"
             width="1000"
             height="570"
             src="https://www.youtube.com/embed/aOzLFbC3FCE"
@@ -168,7 +169,7 @@
             src="https://www.youtube.com/embed/NusWG1x6GBQ"
             title="2nd Use Case"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
         </div>
@@ -243,11 +244,15 @@
         setTimeout(() => {
           document.addEventListener("click", function (event) {
             const isClosest = event.target.closest(".use-case-wrapper");
-            var frame1 = document.querySelector("#iframeDisplay1");
-            var frame2 = document.querySelector("#iframeDisplay2");
+            var iframes = document.getElementsByTagName("iframe");
 
             if (!x) {
               if (!isClosest && !popup.classList.contains("visually-hidden")) {
+                if (iframes != null) {
+                  for (var i = 0; i < iframes.length; i++) {
+                    iframes[i].src = iframes[i].src;
+                  }
+                }
                 popup.classList.add("visually-hidden");
                 x = true;
               }
