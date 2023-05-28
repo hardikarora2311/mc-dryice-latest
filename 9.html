@@ -27,6 +27,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-image: linear-gradient(to right, #9bf2e9, #a0c8fb);
+
         box-shadow: 0 0 50px 0 rgb(0 0 0 / 30%);
         border-radius: 10px;
         z-index: 1;
@@ -67,6 +68,24 @@
           #9bf2e9,
           #a0c8fb
         ) !important;
+      }
+      .close-btn {
+        position: absolute;
+        top: 0px;
+        right: -10%;
+        background: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 25px;
+        color: white;
+        border: 2px solid white;
+        background: grey;
+        top: 0;
+        right: 0;
+      }
+      .close-btn:hover {
+        color: black;
       }
     </style>
   </head>
@@ -132,6 +151,7 @@
         </a>
       </div>
       <!-- <a href="/">HOMEPAGE</a> -->
+      <a href="/new-index.html"><button class="close-btn">&#10006;</button></a>
     </div>
     <div
       class="top-bar-main d-flex justify-content-between"
@@ -1183,8 +1203,7 @@
               >
                 <path
                   d="M480 924q-72 0-135.5-27.5T234 822q-47-47-74.5-110.5T132 576q0-72 27.5-135.5T234 330q47-47 110.5-74.5T480 228q72 0 135.5 27.5T726 330q47 47 74.5 110.5T828 576q0 72-27.5 135.5T726 822q-47 47-110.5 74.5T480 924Zm0-27q38-48 62-93t39-102H379q17 61 40 106t61 89Zm-35-3q-31-33-57-85.5T350 702H186q36 82 105 133t154 59Zm70 0q85-8 154-59t105-133H610q-17 55-43 107.5T515 894ZM175 674h169q-5-26-7-50.5t-2-47.5q0-23 2-47.5t7-50.5H175q-7 21-11 47t-4 51q0 25 4 51t11 47Zm197 0h216q5-26 7-49.5t2-48.5q0-25-2-48.5t-7-49.5H372q-5 26-7 49.5t-2 48.5q0 25 2 48.5t7 49.5Zm244 0h169q7-21 11-47t4-51q0-25-4-51t-11-47H616q5 26 7 50.5t2 47.5q0 23-2 47.5t-7 50.5Zm-6-224h164q-37-84-103.5-133T515 257q31 38 56 89t39 104Zm-231 0h202q-17-60-41.5-107.5T480 255q-35 40-59.5 87.5T379 450Zm-193 0h164q14-53 39-104t56-89q-90 11-156 60.5T186 450Z"
-                /></svg
-              >Visit Site</a
+                /></svg>Visit Site</a
             >
           </div>
         </div>
@@ -1904,7 +1923,7 @@
             classes: "modal-3-first-step",
             buttons: [
               {
-                text: "Next",
+                text: "",
                 action: tour.next,
               },
             ],
@@ -2015,7 +2034,7 @@
             classes: "modal-3-drive-result",
             buttons: [
               {
-                text: "Next",
+                text: "",
                 action: tour.next,
               },
             ],
@@ -2040,7 +2059,7 @@
             },
             buttons: [
               {
-                text: "Next",
+                text: "",
                 action: () => {
                   if ($("#modal-remark-input-3").val().length > 0) {
                     $("#modal-remark-input-3").css("border-color", "#bcd3df");

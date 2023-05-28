@@ -1444,14 +1444,14 @@
           classes: "first-step",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: function () {
                 window.location.href = "4.html";
               },
             },
             {
-              text: "Next",
+              text: "",
               action: function () {
                 $("body").removeClass("tooltip-high");
                 tour.next();
@@ -1477,7 +1477,7 @@
           classes: "thirdd-step btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: tour.next,
             },
           ],
@@ -1502,7 +1502,7 @@
           classes: "thirddd-step btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("4");
               },
@@ -1535,7 +1535,9 @@
           classes: "fifth-step",
           buttons: [
             {
-              text: "Previous",
+              text: "",
+              classes: "previous",
+
               action: () => {
                 return tour.show("3");
               },
@@ -1565,7 +1567,7 @@
           classes: "fifthh-step btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("6");
               },
@@ -1601,14 +1603,14 @@
           classes: "sixth-step",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 return tour.show("5");
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("8");
               },
@@ -1644,12 +1646,12 @@
         //   classes: "sixth-step",
         //   buttons: [
         //   {
-        //       text: "Previous",
+        //       text: "Previou
         //       classes: "previous",
         //       action: tour.back,
         //     },
         //     {
-        //       text: "Next",
+        //       text: "",
         //       action: tour.next,
         //     },
 
@@ -1681,14 +1683,14 @@
           classes: "drive-size-db",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 return tour.show("6");
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 if ($("#lease-val").val().length > 0) {
                   $("#lease-val").removeClass("error");
@@ -1713,14 +1715,14 @@
           classes: "seventh-step",
           buttons: [
             {
-              text: "Previous",
-              // classes: "previous",
+              text: "",
+              classes: "previous",
               action: () => {
                 return tour.show("8");
               },
             },
             // {
-            //   text: "Next",
+            //   text: "",
             //   action: () => {
             //     return tour.show("10");
             //   },
@@ -1757,7 +1759,7 @@
           classes: "tab-head-first btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: tour.next,
             },
           ],
@@ -1793,7 +1795,7 @@
           classes: "instance-family",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 setTimeout(function () {
@@ -1809,7 +1811,7 @@
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("12");
               },
@@ -1827,7 +1829,7 @@
         },
         // {
         //   arrow: false,
-        //   text: "You can also also go back to the previous tab by clicking 'Previous' button.",
+        //   text: "You can also also go back to the previous tab by clicking '' button.",
         //   attachTo: {
         //     element: "#previous-btn",
         //     on: "right",
@@ -1835,7 +1837,7 @@
         //   classes: "tab-head-first btn-none",
         //   buttons: [
         //     {
-        //       text: "Next",
+        //       text: "",
         //       action: tour.next,
         //     },
         //   ],
@@ -1871,7 +1873,7 @@
           classes: "instance-family-main btn-none ",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("13");
               },
@@ -1906,7 +1908,9 @@
           classes: "instance-size-main",
           buttons: [
             {
-              text: "Previous",
+              text: "",
+              classes: "previous",
+
               action: () => {
                 return tour.show("12");
               },
@@ -1936,7 +1940,9 @@
           classes: "resource-group",
           buttons: [
             {
-              text: "Previous",
+              text: "",
+              classes: "previous",
+
               action: () => {
                 return tour.show("13");
               },
@@ -1965,7 +1971,9 @@
           classes: "virtual-network",
           buttons: [
             {
-              text: "Previous",
+              text: "",
+              classes: "previous",
+
               action: () => {
                 return tour.show("14");
               },
@@ -1995,14 +2003,14 @@
           classes: "subnets",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 return tour.show("15");
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("step17");
               },
@@ -2031,7 +2039,7 @@
           classes: "tab-head-second btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: tour.next,
             },
           ],
@@ -2063,7 +2071,7 @@
           classes: "instance-family btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: tour.next,
             },
           ],
@@ -2089,7 +2097,7 @@
           classes: "instance-family-main-app",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 setTimeout(function () {
@@ -2105,7 +2113,7 @@
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("18");
               },
@@ -2137,14 +2145,14 @@
           classes: "instance-size-main-app ",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 return tour.show("17");
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("19");
               },
@@ -2179,7 +2187,7 @@
           classes: "tab-head-third btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: tour.next,
             },
           ],
@@ -2234,7 +2242,7 @@
           classes: "instance-family btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: tour.next,
             },
           ],
@@ -2262,7 +2270,7 @@
           classes: "instance-family-main-db",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 setTimeout(function () {
@@ -2277,7 +2285,7 @@
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.show("21");
               },
@@ -2311,7 +2319,9 @@
           classes: "instance-size-main-db ",
           buttons: [
             {
-              text: "Previous",
+              text: "",
+              classes: "previous",
+
               action: () => {
                 return tour.show("20");
               },
@@ -2343,7 +2353,9 @@
           classes: "resource-group-db",
           buttons: [
             {
-              text: "Previous",
+              text: "",
+              classes: "previous",
+
               action: () => {
                 return tour.show("21");
               },
@@ -2375,7 +2387,9 @@
           classes: "virtual-network-db",
           buttons: [
             {
-              text: "Previous",
+              text: "",
+              classes: "previous",
+
               action: () => {
                 return tour.show("22");
               },
@@ -2407,7 +2421,9 @@
           classes: "subnets-db",
           buttons: [
             {
-              text: "Previous",
+              text: "",
+              classes: "previous",
+
               action: () => {
                 return tour.show("23");
               },
@@ -2437,14 +2453,14 @@
           classes: "drive-size-db",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 return tour.show("24");
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 if ($("#drive-size").val().length > 0) {
                   $("#drive-size").removeClass("error");
@@ -2469,7 +2485,7 @@
           classes: "tab-head-fourth btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: tour.next,
             },
           ],
@@ -2503,7 +2519,7 @@
         //   classes: "instance-family btn-none",
         //   buttons: [
         //     {
-        //       text: "Next",
+        //       text: "",
         //       action: tour.next,
         //     },
         //   ],
@@ -2528,7 +2544,7 @@
         //   classes: "instance-family-main-db btn-none",
         //   buttons: [
         //     {
-        //       text: "Next",
+        //       text: "",
         //       action: tour.next,
         //     },
         //   ],
@@ -2561,11 +2577,11 @@
           classes: "drive-size-db",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 setTimeout(function () {
-                  $("#main-submit").text("Next");
+                  $("#main-submit").text("");
                   $("#tab-head-fourth").removeClass("active");
                   $("#tab-head-third").addClass("active");
                   $("#db-server").addClass("active show");
@@ -2578,7 +2594,7 @@
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 if ($("#key-text").val().length > 0) {
                   $("#key-text").removeClass("error");
@@ -2617,14 +2633,14 @@
           classes: "drive-size-db",
           buttons: [
             {
-              text: "Previous",
+              text: "",
               classes: "previous",
               action: () => {
                 return tour.show("27");
               },
             },
             {
-              text: "Next",
+              text: "",
               action: () => {
                 if ($("#value-text").val().length > 0) {
                   $("#value-text").removeClass("error");
@@ -2660,7 +2676,7 @@
           classes: "main-submit btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: () => {
                 return tour.next("30");
               },
@@ -2702,7 +2718,7 @@
           classes: "modal-btn btn-none",
           buttons: [
             {
-              text: "Next",
+              text: "",
               action: tour.next,
             },
           ],

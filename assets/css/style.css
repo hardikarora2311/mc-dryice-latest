@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap");
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 @font-face {
   font-family: "Source Sans Pro";
   src: url(../font/SourceSansPro-Regular.woff);
@@ -2119,14 +2120,62 @@ div#modaltour-4 .modal-dialog {
 
 .shepherd-element footer.shepherd-footer .previous.shepherd-button {
   color: white !important;
+  background: #a2d9ee;
+  font-weight: 400;
+  padding: 0.2em 1.2em;
+  border-radius: 30px;
+  justify-content: space-between !important;
+  margin-right: auto;
+  margin-left: 0;
+}
+.shepherd-element footer.shepherd-footer {
+  display: flex;
+  justify-content: space-between !important;
+}
+
+.shepherd-element footer.shepherd-footer .previous.shepherd-button:before {
+  /* content: "\f053"; */
+  content: "\f104";
+  display: inline-block;
+  font-size: 22px !important;
+
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  color: black;
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+}
+
+.shepherd-element button.shepherd-button:last-child:before {
+  /* content: "\f054"; */
+  content: "\f105";
+  font-size: 22px !important;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  color: black;
 }
 .shepherd-element button.shepherd-button:last-child {
   background: #0077b5;
   background: #a2d9ee;
   color: black;
   font-weight: 400;
-  padding: 0.7em 1.9em;
-  border-radius: 20px;
+  padding: 0.2em 1.2em;
+  border-radius: 30px;
+  margin-left: auto;
+}
+
+.shepherd-element.btn-none
+  footer.shepherd-footer
+  button.shepherd-button:last-child:before {
+  display: none;
+}
+.shepherd-element.btn-none
+  footer.shepherd-footer
+  .previous.shepherd-button:before {
+  display: none;
 }
 
 .shepherd-content {
@@ -2149,11 +2198,11 @@ div#modaltour-4 .modal-dialog {
   height: 350px !important;
 }
 
-.popup-wrapper p{
+.popup-wrapper p {
   color: white;
 }
 
-.popup p{
+.popup p {
   color: black;
 }
 
@@ -2161,18 +2210,15 @@ div#modaltour-4 .modal-dialog {
   box-shadow: 0 0 15px 0 rgb(0 0 0 / 40%) !important;
 }
 
-
-.thank-dec{
+.thank-dec {
   margin-top: 1.5em;
 }
 
-.thank-dec span{
+.thank-dec span {
   color: gray;
 }
 
 /* .............................................. */
-
-
 
 #prelaoder {
   position: fixed;

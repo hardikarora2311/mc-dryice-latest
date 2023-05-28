@@ -27,6 +27,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-image: linear-gradient(to right, #9bf2e9, #a0c8fb);
+
         box-shadow: 0 0 50px 0 rgb(0 0 0 / 30%);
         border-radius: 10px;
         z-index: 1;
@@ -67,6 +68,25 @@
           #9bf2e9,
           #a0c8fb
         ) !important;
+      }
+      .close-btn {
+        position: absolute;
+        top: 0px;
+        right: -10%;
+        background: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 25px;
+        color: white;
+        border: 2px solid white;
+        background: grey;
+        z-index: 10000;
+        top: 0;
+        right: 0;
+      }
+      .close-btn:hover {
+        color: black;
       }
     </style>
   </head>
@@ -132,6 +152,7 @@
         </a>
       </div>
       <!-- <a href="/">HOMEPAGE</a> -->
+      <a href="/new-index.html"><button class="close-btn">&#10006;</button></a>
     </div>
     <div
       class="top-bar-main d-flex justify-content-between"
