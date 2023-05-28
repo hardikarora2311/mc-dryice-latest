@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="assets/css/shepherd.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,18 +39,15 @@
         box-shadow: 0 0 100px 0 rgb(0 0 0 / 80%);
 
         z-index: 1;
-        background: url("assets/images/popup-bg.png")
-          no-repeat !important;
+        background: url("assets/images/popup-bg.png") no-repeat !important;
         background-size: cover !important;
-
-        
       }
       .use-case {
         width: 360px;
         height: max-content;
         cursor: pointer;
         color: black;
-        background-color: white !important;
+        background: linear-gradient(to right, #9bf2e9, #12c1bb) !important;
         margin: 1em 1em;
         border-radius: 10px;
         box-shadow: 0 0 15px 0 rgb(0 0 0 / 20%);
@@ -441,6 +437,12 @@
         closeBtn.innerHTML = "&#10006;"; // X symbol
         closeBtn.classList.add("close-btn");
         closeBtn.onclick = function () {
+          var iframes = document.getElementsByTagName("iframe");
+          if (iframes != null) {
+            for (var i = 0; i < iframes.length; i++) {
+              iframes[i].src = iframes[i].src;
+            }
+          }
           iframe.classList.add("visually-hidden");
           this.parentNode.removeChild(this);
         };
@@ -454,6 +456,12 @@
         closeBtn.innerHTML = "&#10006;"; // X symbol
         closeBtn.classList.add("close-btn");
         closeBtn.onclick = function () {
+          var iframes = document.getElementsByTagName("iframe");
+          if (iframes != null) {
+            for (var i = 0; i < iframes.length; i++) {
+              iframes[i].src = iframes[i].src;
+            }
+          }
           iframe.classList.add("visually-hidden");
           this.parentNode.removeChild(this);
         };
