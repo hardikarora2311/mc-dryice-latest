@@ -1626,6 +1626,7 @@
               $("#sixth-step .option-main").on("click", function () {
                 // tour.next();
                 $("#sixth-step").removeClass("active");
+                // return tour.show("8");
                 // $(".shepherd-element.sixth-step.btn-none button").click();
               });
             },
@@ -1713,17 +1714,17 @@
           buttons: [
             {
               text: "Previous",
-              classes: "previous",
+              // classes: "previous",
               action: () => {
                 return tour.show("8");
               },
             },
-            {
-              text: "Next",
-              action: () => {
-                return tour.show("10");
-              },
-            },
+            // {
+            //   text: "Next",
+            //   action: () => {
+            //     return tour.show("10");
+            //   },
+            // },
           ],
           highlightClass: "highlight-layer",
           when: {
@@ -1736,6 +1737,8 @@
                   $("#seventh-step , #seventh-step-inner").removeClass(
                     "active"
                   );
+                  return tour.show("10");
+
                   // $(".shepherd-element.seventh-step.btn-none button").click();
                 }
               );
@@ -1865,7 +1868,7 @@
             element: "#instance-family-main",
             on: "right",
           },
-          classes: "instance-family-main ",
+          classes: "instance-family-main btn-none ",
           buttons: [
             {
               text: "Next",
@@ -1882,9 +1885,10 @@
               $("#instance-family-main .option-main").on("click", function (e) {
                 if ($(this).hasClass("option-main")) {
                   $("#instance-family-main").removeClass("active");
-                  $(
-                    ".shepherd-element.instance-family-main.btn-none button"
-                  ).click();
+                  // $(
+                  //   ".shepherd-element.instance-family-main.btn-none button"
+                  // ).click();
+                  return tour.show("13");
                 }
               });
             },
