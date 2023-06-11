@@ -42,17 +42,18 @@
         font-size: 20px;
       }
       .btn1 {
-        background-color: #a2d9ee;
-        color: black;
+        background-color: #0077b5;
+        color: white;
         font-size: 1.5em;
         font-weight: 500;
         padding: 0.7em 1.9em;
         border-radius: 20px;
-        border: none;
+        border: 2px solid #0077b5;
         transition: all 0.2s ease;
       }
       .btn1:hover {
-        background-color: rgba(162, 216, 238, 0.5);
+        background-color: #0074b390;
+        box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.5);
       }
 
       .use-case-wrapper {
@@ -66,7 +67,7 @@
         box-shadow: 0 0 100px 0 rgb(0 0 0 / 80%);
 
         z-index: 1;
-        background: url("assets/images/popup-bg.png") no-repeat !important;
+        background: url("assets/images/popup-bg1.png") no-repeat !important;
         background-size: cover !important;
       }
       .use-case {
@@ -74,7 +75,7 @@
         height: max-content;
         cursor: pointer;
         color: black;
-        background: linear-gradient(to right, #9bf2e9, #12c1bb) !important;
+        background-color: white !important;
         margin: 1em 1em;
         border-radius: 10px;
         box-shadow: 0 0 15px 0 rgb(0 0 0 / 20%);
@@ -87,8 +88,28 @@
       .use-case a:hover {
         color: white;
       }
-      .use-case p {
+      .use-case h2 {
+        font-size: 1.6em;
+        font-weight: 500;
+        margin-top: 0.8em;
         margin-bottom: 0.8em;
+      }
+      .use-case p {
+        margin-bottom: 1em;
+      }
+      .use-case .img {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(to right,#3288f4 40%, #2dd1b4 80%,#9bf2e9) !important;
+      }
+      .use-case img{
+        width: 30px;
+        height: 30px;
       }
 
       .btn-wrapper {
@@ -174,8 +195,14 @@
           ></iframe>
         </div>
         <div class="use-case">
-          <img src="assets/images/Logo DRYiCE black.png" alt="" width="100" />
-          <p>Provisioning an endpoint</p>
+          <div class="img">
+            <img src="assets/images/provisioning.png" alt="" />
+          </div>
+          <h2>Provisioning</h2>
+          <p>
+            Let's walk through the process of provisioning a catalogue in
+            MyCloud and see what we can do
+          </p>
 
           <div class="btn-wrapper">
             <a href="login-1.html" class="usecase-btn">Click through</a>
@@ -185,8 +212,14 @@
           </div>
         </div>
         <div class="use-case">
-          <img src="assets/images/Logo DRYiCE black.png" alt="" width="100" />
-          <p>Configuring a VM</p>
+          <div class="img">
+            <img src="assets/images/managing.png" alt="" />
+          </div>
+          <h2>Managing Resources</h2>
+          <p>
+            Taking a look at how to manage resources under MyCloud by performing
+            a few actions
+          </p>
 
           <div class="btn-wrapper">
             <a href="login-2.html" class="usecase-btn">Click through</a>
@@ -211,8 +244,8 @@
             and monitoring of your cloud infrastructure.
           </p>
           <div class="d-flex gap-4">
-            <button class="btn1 my-5" onclick="toggle()">
-              EXPERIENCE MyCloud
+            <button class="btn1 my-5 rounded-pill" onclick="toggle()">
+              Experience MyCloud
             </button>
             <!-- <button class="btn2 my-5">Video Tutorial</button> -->
           </div>

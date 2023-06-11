@@ -74,7 +74,7 @@
   text-align: right;
   padding: 15px 0;
   font-size: 12px;
-  font-family: verdana;
+  font-family: "Raleway", sans-serif;
 }
 
 .login-main {
@@ -200,6 +200,10 @@ input,
     border-radius: 24px;
     padding: 20px;
 } */
+.menu-bar{
+  font-family: "Raleway", sans-serif !important;
+}
+
 .menu-bar li {
   display: flex;
   align-items: center;
@@ -289,7 +293,6 @@ button.shepherd-button {
 }
 
 .shepherd-element .shepherd-text {
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: #000066;
@@ -301,14 +304,13 @@ button.shepherd-button {
 .shepherd-element {
   background: #b4c7e7;
   border: 1px solid #000066;
-  font-family: "Roboto";
 }
 .shepherd-element button.shepherd-button:last-child {
   background: #000066;
   border-radius: 50px;
   padding: 4px 26px;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 .shepherd-element footer.shepherd-footer .previous.shepherd-button {
   padding: 0;
@@ -317,7 +319,7 @@ button.shepherd-button {
   margin-right: 20px;
   font-weight: 400;
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 .shepherd-element[data-popper-placement="bottom"] {
   margin-top: 15px !important;
@@ -1949,10 +1951,10 @@ div#modaltour-4 .modal-dialog {
   text-align: center;
 }
 
-.use-case-wrapper .use-case img {
+/* .use-case-wrapper .use-case img {
   width: 150px;
   margin-bottom: 10px;
-}
+} */
 
 .use-case-wrapper .use-case {
   background: #0077b529;
@@ -1976,7 +1978,7 @@ div#modaltour-4 .modal-dialog {
 }
 
 .thank-you .start-up-wrapper {
-  color: #000;
+  color: white;
 }
 .start-up-wrapper {
   background-color: #203864;
@@ -2206,17 +2208,17 @@ div#modaltour-4 .modal-dialog {
   color: black;
 }
 
-.popup-wrapper .popup {
+/* .popup-wrapper .popup {
   box-shadow: 0 0 15px 0 rgb(0 0 0 / 40%) !important;
-}
+} */
 
 .thank-dec {
   margin-top: 1.5em;
 }
 
-.thank-dec span {
+/* .thank-dec span {
   color: gray;
-}
+} */
 
 /* .............................................. */
 
