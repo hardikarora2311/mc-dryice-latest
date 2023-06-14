@@ -1438,7 +1438,7 @@
         {
           id: "1",
           arrow: false,
-          text: "Let’s fill out the form and hover your mouse over the info icon to see a description of the field.",
+          text: "Let’s fill out the form. Click on the next arrow key to proceed.",
           attachTo: {
             element: "#first-step",
             on: "bottom",
@@ -1823,7 +1823,7 @@
           when: {
             show: () => {
               $("#instance-family-main").on("click", function () {
-                $(".shepherd-element.instance-family.btn-none button").click();
+                $(".shepherd-element.instance-family button:last-child").click();
               });
             },
           },
@@ -1867,7 +1867,7 @@
         {
           arrow: false,
           id: "12",
-          text: "To select an 'Instance family', click the dropdown menu item.",
+          text: "Select the 'Instance family'.",
           attachTo: {
             element: "#instance-family-main",
             on: "right",
@@ -1893,6 +1893,9 @@
                   //   ".shepherd-element.instance-family-main.btn-none button"
                   // ).click();
                   return tour.show("13");
+                  $(this).off("click");
+
+                  
                 }
               });
             },
@@ -1934,7 +1937,7 @@
         {
           id: "14",
           arrow: false,
-          text: "Click on the dropdown menu to select the 'Resource Group'",
+          text: "Select the 'Resource Group'.",
           attachTo: {
             element: "#resource-group",
             on: "right",
@@ -1965,7 +1968,7 @@
         {
           id: "15",
           arrow: false,
-          text: "Click on the dropdown menu to select the 'VirtualNetwork'.",
+          text: "Select the 'Virtual Network'.",
           attachTo: {
             element: "#virtual-network",
             on: "right",
@@ -1997,7 +2000,7 @@
         {
           id: "16",
           arrow: false,
-          text: "Click on the dropdown menu to select the 'Subnet'.",
+          text: "Select the 'Subnet' and then click on next arrow key.",
           attachTo: {
             element: "#subnets",
             on: "right",
@@ -2033,7 +2036,7 @@
         {
           id: "step17",
           arrow: false,
-          text: "Let's set up the 'App server'.",
+          text: "Let's set up the 'App Server' now.",
           attachTo: {
             element: "#main-submit",
             on: "right",
@@ -2091,7 +2094,7 @@
         {
           id: "17",
           arrow: false,
-          text: "To select an 'Instance family', click the dropdown menu item.",
+          text: "Select the 'Instance family'.",
           attachTo: {
             element: "#instance-family-main-app",
             on: "right",
@@ -2181,7 +2184,7 @@
         {
           id: "19",
           arrow: false,
-          text: "Let's set up the DB server now",
+          text: "Let's set up the 'DB Server' now.",
           attachTo: {
             element: "#main-submit",
             on: "right",
@@ -2264,7 +2267,7 @@
         {
           id: "20",
           arrow: false,
-          text: "To select an 'Instance family', click the dropdown menu item.",
+          text: "Select the 'Instance family'.",
           attachTo: {
             element: "#instance-family-main-db",
             on: "right",
@@ -2571,7 +2574,7 @@
         {
           id: "27",
           arrow: false,
-          text: "Manually enter the Key Value.",
+          text: "Manually enter the 'Key'.",
           attachTo: {
             element: "#key-text",
             on: "right",
@@ -2627,7 +2630,7 @@
         {
           id: "28",
           arrow: false,
-          text: "Manually enter the Value.",
+          text: "Manually enter the 'Value'.",
           attachTo: {
             element: "#value-text",
             on: "right",
