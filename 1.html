@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="assets/css/shepherd.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body class="main-dashboard">
@@ -226,15 +228,15 @@
           arrow: false,
           text: "Here's your MyCloud dashboard.",
           attachTo: {
-            element:".main-graph",
+            element: ".main-graph",
             on: "top",
           },
           classes: "example-step-extra-class",
 
           when: {
-            show: ()=>{
+            show: () => {
               $(".darkscale").css("display", "none");
-            }
+            },
           },
 
           buttons: [
@@ -255,17 +257,16 @@
           arrow: false,
           text: "A variety of widgets for performance and billing reports are available to provide you with an overview of some of the most useful information.",
           attachTo: {
-            element:".main-graph",
+            element: ".main-graph",
             on: "top",
           },
           classes: "example-step-extra-class",
 
           when: {
-            show: ()=>{
+            show: () => {
               $(".main-graph").addClass("new-highlight-layer");
               $(".darkscale").css("display", "initial");
-
-            }
+            },
           },
 
           buttons: [
@@ -299,7 +300,13 @@
             },
             {
               text: "",
-              action: tour.next,
+              action: () => {
+                zoom.out();
+
+                setTimeout(() => {
+                  tour.next();
+                }, 1500);
+              },
             },
           ],
           when: {
@@ -336,8 +343,6 @@
               $(".third-step").removeClass("new-highlight-layer");
 
               $("#third-step").addClass("new-highlight-layer");
-
-
             },
           },
 
